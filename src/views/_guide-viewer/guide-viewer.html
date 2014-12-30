@@ -113,8 +113,8 @@
 
 {% raw %}
 <footer role="contentinfo" class="viewer-footer" data-ng-show="viewer.contentInfo.isOpen">
-    <p>The <a href="https://github.com/voorhoede/front-end-guide">Front-end Guide</a> is a project by <a href="http://voorhoede.nl">De Voorhoede</a>.</p>
-    <p>Its code is licensed under <a href="https://github.com/voorhoede/front-end-guide/blob/master/LICENSE">MIT License</a>. So use it however you like.</p>
+    <p>The <a href="https://github.com/voorhoede/email-template-guide">Email Template Guide</a> is a project by <a href="http://voorhoede.nl">De Voorhoede</a>.</p>
+    <p>Its code is licensed under <a href="https://github.com/voorhoede/email-template-guide/blob/master/LICENSE">MIT License</a>. So use it however you like.</p>
 </footer>
 {% endraw %}
 <script src="https://code.angularjs.org/1.2.27/angular.min.js"></script>
@@ -123,12 +123,10 @@
     angular.module('config',[])
         .constant('ROOT_PATH', '{{ paths.root }}')
         .constant('BREAKPOINTS', [
-                { name: 'XS', width: 320, icon: 'mobile' },
-                { name: 'S', width: 520, icon: 'tablet' },
-                { name: 'M', width: 620, icon: 'laptop' },
-                { name: 'L', width: 960, icon: 'desktop' }
+                { name: 'M', width: 320, icon: 'mobile' },
+                { name: 'N', width: 520, icon: 'newsletter' }
             ])
-        .constant('DEFAULT_MODULE', 'app/style-guide')
+        .constant('DEFAULT_MODULE', 'views/home')
         .constant('MODULES', [
             {# create list of modules based on module index #}
             {% for item in moduleIndex.components | match('^[a-z]', 'name') %}
@@ -137,18 +135,6 @@
             {% for item in moduleIndex.views | match('^[a-z]', 'name') %}
                 {{ item | prettyJson }},
             {% endfor %}
-            {
-                id: 'app/index',
-                name: 'index',
-                path: 'views/_guide-index/guide-index.html',
-                type: 'app'
-            },
-            {
-                id: 'app/style-guide',
-                name: 'style-guide',
-                path: 'views/_style-guide/style-guide.html',
-                type: 'app'
-            }
         ]);
 </script>
 <script>{% include "views/_guide-viewer/guide-viewer.js" %}</script>

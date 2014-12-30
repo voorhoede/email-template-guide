@@ -64,7 +64,6 @@ function buildHtmlTask() {
 			);
 		}))
 		.pipe(plumber.stop())
-		//.pipe(formatHtml())
 		.pipe(gulp.dest(paths.dist))
 		.pipe(reloadBrowser({ stream:true }));
 }
@@ -81,7 +80,7 @@ function buildModuleInfoTask() {
 					name: name,
 					readme  : marked(getFileContents(paths['src' + moduleType]  + name + '/README.md')),
 					html    : highlightCode(getFileContents(distBasename + '.html'), 'markup'),
-					less    : highlightCode(getFileContents(srcBasename + '.less'), 'css')
+					css    : highlightCode(getFileContents(srcBasename + '.less'), 'css')
 				};
 				fs.writeFileSync(distBasename + '-info.json', JSON.stringify(moduleInfo, null, 4));
 			});
@@ -103,10 +102,7 @@ function buildPreviewsTask() {
 function buildLessTask() {
 	return srcFiles('less')
 		.pipe(plumber()) // prevent pipe break on less parsing
-		.pipe(sourcemaps.init())
 		.pipe(less())
-		.pipe(autoprefixer({ browsers: config.autoprefixBrowsers }))
-		.pipe(sourcemaps.write('.', {includeContent: true, sourceRoot: '' }))
 		.pipe(plumber.stop())
 		.pipe(rename(function(p){
 			if(p.dirname === '.'){ p.dirname = 'assets'; } // output root src files to assets dir
