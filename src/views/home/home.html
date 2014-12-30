@@ -1,0 +1,13 @@
+{% extends "views/_base-view/base-view.html" %}
+
+{% block title %}home | {{ super() }}{% endblock %}
+
+{% block content %}
+    <!-- home view -->
+    <h1>Home</h1>
+
+    <div class="fixed-ratio" style="padding-bottom:{{ 100/ (1200/300) }}%">
+        <img class="fixed-ratio-content" src="http://lorempixel.com/1200/300/" alt="random image">
+    </div>
+    <!-- /home view -->
+{% endblock %}
