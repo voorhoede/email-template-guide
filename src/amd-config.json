@@ -1,8 +1,0 @@
-{
-    "paths": {
-        "airhooks": "vendor/airhooks/airhooks",
-        "expandible": "vendor/expandible/expandible",
-	    "fastclick": "vendor/fastclick/lib/fastclick"
-    },
-	"shims": {}
-}
