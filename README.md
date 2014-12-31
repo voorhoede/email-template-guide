@@ -24,7 +24,6 @@ Manage, build and compile your nightmarish email newsletter templates.
 
 Want installation guide in more detail? Read [Getting started](docs/getting-started.md).
 
-
 ## Documentation
 
 * [Getting started](docs/getting-started.md)

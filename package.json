@@ -12,13 +12,9 @@
     "url": "git://github.com/voorhoede/front-end-guide.git"
   },
   "keywords": [
-    "front-end",
     "newsletter",
     "email",
-    "guide",
-    "reusable",
-    "components",
-    "modules"
+    "guide"
   ],
   "author": "De Voorhoede",
   "license": "MIT",
@@ -48,11 +44,6 @@
     "gulp-util": "^3.0.1",
     "inquirer": "^0.8.0",
     "json-stable-stringify": "^1.0.0",
-    "karma": "^0.12.24",
-    "karma-chrome-launcher": "^0.1.5",
-    "karma-jasmine": "^0",
-    "karma-phantomjs-launcher": "^0.1.4",
-    "karma-requirejs": "^0.2.2",
     "lazypipe": "^0.2.2",
     "lodash-node": "^2.4.1",
     "marked": "^0.3.2",

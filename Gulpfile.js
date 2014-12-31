@@ -1,6 +1,5 @@
 /* Dependencies (A-Z) */
 var _ = require('lodash-node');
-var autoprefixer = require('gulp-autoprefixer');
 var browserSync = require('browser-sync');
 var cached = require('gulp-cached');
 var del = require('del');
@@ -45,8 +44,6 @@ gulp.task('create_module', createModule);
 gulp.task('edit_module', editModule);
 gulp.task('remove_module', removeModule);
 gulp.task('serve', serveTask);
-gulp.task('test_run', testTask('run'));
-gulp.task('test_watch', testTask('watch'));
 gulp.task('watch', function(/*cb*/) { runSequence(['build_guide', 'serve'], watchTask); });
 gulp.task('zip_dist', zipDistTask);
 
@@ -179,20 +176,6 @@ function htmlModuleData(file) {
 	};
 }
 
-function jshintNodeTask() {
-	return gulp.src(['*.js'])
-		.pipe(jshint('.jshintrc'))
-		.pipe(jshint.reporter(require('jshint-stylish')));
-}
-
-function jshintSrcTask() {
-	return srcFiles('js')
-		.pipe(cached('hinting')) // filter down to changed files only
-		.pipe(jscs())
-		.pipe(jshint(paths.src + '.jshintrc'))
-		.pipe(jshint.reporter(require('jshint-stylish')));
-}
-
 function listDirectories(cwd) {
 	return fs.readdirSync(cwd)
 		.filter(function(file){
@@ -216,21 +199,6 @@ function reloadBrowser(options){
 
 function removeModule() {
 	return moduleUtility.remove();
-}
-
-function testTask(action) {
-	return function () {
-		return gulp.src([
-			// files you put in this array override the files array in karma.conf.js
-		])
-		.pipe(karma({
-			configFile: paths.karmaConfig,
-			action: action
-		}))
-		.on('error', function (err) {
-			throw err;
-		});
-	};
 }
 
 function serveTask() {
