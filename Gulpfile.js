@@ -10,6 +10,7 @@ var gulp = require('gulp');
 var karma = require('gulp-karma');
 var lazypipe = require('lazypipe');
 var less = require('gulp-less');
+var litmus = require('gulp-litmus');
 var minifyHtml = require('gulp-minify-html');
 var moduleUtility = require('./lib/module-utility');
 var newer = require('gulp-newer');
@@ -22,7 +23,7 @@ var prism = require('./lib/prism');
 var rename = require('gulp-rename');
 var replace = require('gulp-replace');
 var runSequence = require('run-sequence');
-var sourcemaps = require('gulp-sourcemaps');
+//var sourcemaps = require('gulp-sourcemaps');
 var zip = require('gulp-zip');
 
 /* Shared configuration (A-Z) */
@@ -42,6 +43,7 @@ gulp.task('build_previews', buildPreviewsTask);
 gulp.task('clean_dist', function (cb) { del([paths.dist], cb); });
 gulp.task('create_module', createModule);
 gulp.task('edit_module', editModule);
+gulp.task('litmus', runLitmusTests);
 gulp.task('remove_module', removeModule);
 gulp.task('serve', serveTask);
 gulp.task('watch', function(/*cb*/) { runSequence(['build_guide', 'serve'], watchTask); });
@@ -199,6 +201,40 @@ function reloadBrowser(options){
 
 function removeModule() {
 	return moduleUtility.remove();
+}
+
+function runLitmusTests(){
+	//clients: https://litmus.com/emails/clients.xml
+	var litmusConfig = {
+		username: 'celine@voorhoede.nl',
+		password: 'rbs1059!',
+		url: 'https://voorhoede2.litmus.com',
+		applications: [
+			//desktop
+			'ol2003',
+			'ol2007',
+			'ol2010',
+			'ol2013',
+			'appmail6',
+			//browser
+			'outlookcom', //on ie
+			'yahoo', //on ie
+			'gmailnew', //on ie
+			'ffgmailnew',
+			'chromegmailnew',
+			//devices
+			'android4',
+			'androidgmailapp',
+			'ipad',
+			'ipadmini',
+			'iphone5s',
+			'windowsphone8'
+		]
+	};
+
+	return gulp.src('dist/views/**/*.html')
+		.pipe(litmus(litmusConfig))
+		.pipe(gulp.dest('dist/email'));
 }
 
 function serveTask() {
