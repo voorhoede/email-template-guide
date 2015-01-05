@@ -6,6 +6,7 @@ var del = require('del');
 var gulpif = require('gulp-if');
 var filter = require('gulp-filter');
 var fs = require('fs');
+var inlineCss = require('gulp-inline-css');
 var gulp = require('gulp');
 var karma = require('gulp-karma');
 var lazypipe = require('lazypipe');
@@ -22,7 +23,7 @@ var prism = require('./lib/prism');
 var rename = require('gulp-rename');
 var replace = require('gulp-replace');
 var runSequence = require('run-sequence');
-var sourcemaps = require('gulp-sourcemaps');
+//var sourcemaps = require('gulp-sourcemaps');
 var zip = require('gulp-zip');
 
 /* Shared configuration (A-Z) */
@@ -34,7 +35,7 @@ var pkg = require('./package.json');
 gulp.task('default', ['build_guide']);
 gulp.task('build', ['build_html', 'build_less']);
 gulp.task('build_clean', function(cb) { runSequence('clean_dist', 'build', cb); });
-gulp.task('build_guide', function(cb) { runSequence('build_clean', 'build_previews', 'build_module_info', cb); });
+gulp.task('build_guide', function(cb) { runSequence('build_clean', 'build_previews', 'inlineCss', 'build_module_info', cb); });
 gulp.task('build_html', buildHtmlTask);
 gulp.task('build_less', buildLessTask);
 gulp.task('build_module_info', buildModuleInfoTask);
@@ -42,6 +43,7 @@ gulp.task('build_previews', buildPreviewsTask);
 gulp.task('clean_dist', function (cb) { del([paths.dist], cb); });
 gulp.task('create_module', createModule);
 gulp.task('edit_module', editModule);
+gulp.task('inlineCss', inlineCssTask);
 gulp.task('remove_module', removeModule);
 gulp.task('serve', serveTask);
 gulp.task('watch', function(/*cb*/) { runSequence(['build_guide', 'serve'], watchTask); });
@@ -120,6 +122,18 @@ function createModule() {
 }
 function editModule() {
 	return moduleUtility.edit();
+}
+
+function inlineCssTask(){
+	return gulp.src('dist/views/**/*.html')
+		.pipe(inlineCss({
+			applyStyleTags: true,
+			applyLinkTags: true,
+			removeStyleTags: true,
+			removeLinkTags: true,
+			preserveMediaQueries: true
+		}))
+		.pipe(gulp.dest('dist/views/'));
 }
 
 var formatHtml = lazypipe()
@@ -217,9 +231,9 @@ function srcFiles(filetype) {
 
 function watchTask () {
 	gulp.watch(paths.assetFiles, ['build_assets']);
-	gulp.watch(paths.htmlFiles, ['build_html', 'build_previews']);
+	gulp.watch(paths.htmlFiles, ['build_html', 'build_previews', 'inlineCss']);
 	gulp.watch(paths.jsFiles,   ['build_js']);
-	gulp.watch(paths.lessFiles, ['build_less']);
+	gulp.watch(paths.lessFiles, ['build_less', 'inlineCss']);
 }
 
 function zipDistTask () {
