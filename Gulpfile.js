@@ -23,6 +23,7 @@ var prism = require('./lib/prism');
 var rename = require('gulp-rename');
 var replace = require('gulp-replace');
 var runSequence = require('run-sequence');
+var util = require('gulp-util');
 //var sourcemaps = require('gulp-sourcemaps');
 var zip = require('gulp-zip');
 
@@ -55,6 +56,7 @@ function buildHtmlTask() {
 	configureNunjucks();
 	var moduleIndex = moduleUtility.getModuleIndex();
 	return srcFiles('html')
+		.pipe(cached('html'))
 		.pipe(plumber()) // prevent pipe break on nunjucks render error
 		.pipe(nunjucksRender(function(file){
 			return _.extend(
@@ -100,6 +102,7 @@ function buildPreviewsTask() {
 
 function buildLessTask() {
 	return srcFiles('less')
+		.pipe(cached('less'))
 		.pipe(plumber()) // prevent pipe break on less parsing
 		.pipe(less())
 		.pipe(plumber.stop())
@@ -107,8 +110,8 @@ function buildLessTask() {
 			if(p.dirname === '.'){ p.dirname = 'assets'; } // output root src files to assets dir
 		}))
 		.pipe(gulp.dest(paths.dist)) // write the css and source maps
-		.pipe(filter('**/*.css')) // filtering stream to only css files
-		.pipe(reloadBrowser({ stream:true }));
+		.pipe(filter('**/*.css')); // filtering stream to only css files
+
 }
 
 function configureNunjucks() {
@@ -125,6 +128,7 @@ function editModule() {
 }
 
 function inlineCssTask(){
+	util.log('------------ inline css ----------');
 	return gulp.src('dist/views/**/*.html')
 		.pipe(inlineCss({
 			applyStyleTags: true,
@@ -133,7 +137,9 @@ function inlineCssTask(){
 			removeLinkTags: true,
 			preserveMediaQueries: true
 		}))
-		.pipe(gulp.dest('dist/views/'));
+		.pipe(gulp.dest('dist/views/'))
+		.pipe(reloadBrowser({ stream:true }))
+		.on('error', util.log);
 }
 
 var formatHtml = lazypipe()
@@ -230,10 +236,13 @@ function srcFiles(filetype) {
 }
 
 function watchTask () {
+	util.log(util.colors.green('Watching..'));
+
 	gulp.watch(paths.assetFiles, ['build_assets']);
-	gulp.watch(paths.htmlFiles, ['build_html', 'build_previews', 'inlineCss']);
+	gulp.watch(paths.htmlFiles, ['build_html', 'build_previews']);
 	gulp.watch(paths.jsFiles,   ['build_js']);
-	gulp.watch(paths.lessFiles, ['build_less', 'inlineCss']);
+	gulp.watch(paths.lessFiles, function() { runSequence('build_less', 'inlineCss'); });
+
 }
 
 function zipDistTask () {
