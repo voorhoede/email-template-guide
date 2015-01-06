@@ -111,7 +111,6 @@ function buildLessTask() {
 		}))
 		.pipe(gulp.dest(paths.dist)) // write the css and source maps
 		.pipe(filter('**/*.css')); // filtering stream to only css files
-
 }
 
 function configureNunjucks() {
@@ -128,15 +127,10 @@ function editModule() {
 }
 
 function inlineCssTask(){
-	util.log('------------ inline css ----------');
+		util.log('------------ inline css ----------');
+
 	return gulp.src('dist/views/**/*.html')
-		.pipe(inlineCss({
-			applyStyleTags: true,
-			applyLinkTags: true,
-			removeStyleTags: true,
-			removeLinkTags: true,
-			preserveMediaQueries: true
-		}))
+		.pipe(inlineCss())
 		.pipe(gulp.dest('dist/views/'))
 		.pipe(reloadBrowser({ stream:true }))
 		.on('error', util.log);
@@ -240,9 +234,7 @@ function watchTask () {
 
 	gulp.watch(paths.assetFiles, ['build_assets']);
 	gulp.watch(paths.htmlFiles, ['build_html', 'build_previews']);
-	gulp.watch(paths.jsFiles,   ['build_js']);
 	gulp.watch(paths.lessFiles, function() { runSequence('build_less', 'inlineCss'); });
-
 }
 
 function zipDistTask () {
