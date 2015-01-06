@@ -17,18 +17,16 @@ Manage, build and compile your nightmarish email newsletter templates.
 
 	$ gulp watch
 
-**Deploy locally**
+**Deploy and start server**
 
 	$ gulp build_guide
 	$ gulp serve
 
-Want installation guide in more detail? Read [Getting started](docs/getting-started.md).
+**Deploy and pack**
+
+	$ npm run build
+
 
 ## Documentation
 
-* [Getting started](docs/getting-started.md)
-* [Authoring templates (HTML)](docs/authoring-templates.md)
-* [Authoring styles (LESS/CSS)](docs/authoring-styles.md)
-* [Creating modules](docs/module-crud.md)
-* [Changelog](docs/changelog.md)
-* [Versioning](docs/versioning.md)
+Soon
