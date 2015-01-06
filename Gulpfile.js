@@ -206,9 +206,9 @@ function removeModule() {
 function runLitmusTests(){
 	//clients: https://litmus.com/emails/clients.xml
 	var litmusConfig = {
-		username: 'celine@voorhoede.nl',
-		password: 'rbs1059!',
-		url: 'https://voorhoede2.litmus.com',
+		username: 'username',
+		password: '###',
+		url: 'voorhode',
 		applications: [
 			//desktop
 			'ol2003',
