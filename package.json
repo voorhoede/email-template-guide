@@ -5,7 +5,9 @@
   "main": "source/index.js",
   "private": "yes",
   "scripts": {
-    "build": "gulp build_guide && gulp zip_dist"
+    "build": "gulp build_guide && gulp zip_dist",
+    "develop": "gulp watch",
+    "test": "gulp litmus"
   },
   "repository": {
     "type": "git",

@@ -219,36 +219,8 @@ function removeModule() {
 }
 
 function runLitmusTests(){
-	//clients: https://litmus.com/emails/clients.xml
-	var litmusConfig = {
-		username: 'username',
-		password: '###',
-		url: 'voorhode',
-		applications: [
-			//desktop
-			'ol2003',
-			'ol2007',
-			'ol2010',
-			'ol2013',
-			'appmail6',
-			//browser
-			'outlookcom', //on ie
-			'yahoo', //on ie
-			'gmailnew', //on ie
-			'ffgmailnew',
-			'chromegmailnew',
-			//devices
-			'android4',
-			'androidgmailapp',
-			'ipad',
-			'ipadmini',
-			'iphone5s',
-			'windowsphone8'
-		]
-	};
-
 	return gulp.src('dist/views/**/*.html')
-		.pipe(litmus(litmusConfig))
+		.pipe(litmus(config.litmusConfig))
 		.pipe(gulp.dest('dist/email'));
 }
 

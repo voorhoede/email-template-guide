@@ -1,6 +1,10 @@
 # Email Template Guide
 
-Manage, build and compile your nightmarish email newsletter templates.
+Build, preview and test your nightmarish email newsletter templates.
+Use the Email Template Guide to create your newsletter modules and we take
+care of inlining your css on your final template. 
+
+You can also test your layouts on different email clients with [Litmus](http://litmus.com).
 
 ## Kick start
 
@@ -11,22 +15,16 @@ Manage, build and compile your nightmarish email newsletter templates.
 
 **Install all dependencies**
 
-	$ npm i
+	$ npm i && npm i -g gulp
 
 **Build and watch**
 
-	$ gulp watch
+	$ npm run develop
 
-**Deploy and start server**
+**Test with Litmus**
 
-	$ gulp build_guide
-	$ gulp serve
+	$ npm run test
 
 **Deploy and pack**
 
 	$ npm run build
-
-
-## Documentation
-
-Soon
