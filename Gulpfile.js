@@ -127,7 +127,7 @@ function editModule() {
 	return moduleUtility.edit();
 }
 
-function inlineCssTask(){
+function inlineCssTask(event){
 	return gulp.src('dist/views/**/*.html')
 		.pipe(inlineCss())
 		.pipe(gulp.dest('dist/views/'))
@@ -267,7 +267,7 @@ function watchTask () {
 
 	gulp.watch(paths.assetFiles, ['build_assets']);
 	gulp.watch(paths.htmlFiles, ['build_html', 'build_previews']);
-	gulp.watch(paths.lessFiles, function() { runSequence('build_less', 'inline_css'); });
+	gulp.watch(paths.lessFiles, function() { runSequence('build_less', 'build_html', 'build_previews', 'inlineCss'); });
 }
 
 function zipDistTask () {
