@@ -124,8 +124,18 @@ In the Email Template Guide a component HTML is treated as template partials. Th
 
 	{# in `src/views/_base-view/base-view.html`: #}
 	{% include "components/app-header/app-header.html" %}
-	
 
+###Testing with Litmus
+
+If you have a Litmus account you are going to love this option. (If not you can still try for 8 days)
+
+Just edit the [config](config.js) file with your personal information and then run:
+
+	$ npm run test
+
+Now visit your Litmus account to check your email newsletter outputs on diferent email clients.
+
+ 
 ##Contributors
 
 * [João Carmona](https://github.com/jpcarmona) - joao@voorhoede.nl
