@@ -35,23 +35,25 @@ You can also test your layouts on different email clients with [Litmus](http://l
 1. [x] Configurate gulp inline-css
 1. [x] Configurate gulp litmus
 1. [ ] Setup demo email
-1. [ ] Nice to have: Poll litmus results and add to a results page.
+1. [ ] Nice to have: Pull litmus results and add to a results page.
 1. [ ] Nice to have: Make it possible to let inline-css ignore specific styles.
 
 ##Documentation
 
+1. [x] How to work with the module manager
 1. [ ] Best practices document
 	1. [ ] Best practices for gmail
 	1. [ ] Best practices for outlook
 
 ###Adding and removing modules
 
-* Components and views are ***modules***
-* You can create or remove modules using a prompt.
+Components and views are ***modules***.
+
+You can create or remove modules using a prompt.
 
 	$ npm run add-module
 
-Will ask you:
+It will ask you:
 
 * If you want to create a ***component*** or a ***view***
 * What you want the name of the module to be
@@ -68,11 +70,10 @@ Entering the name of a module that already exists, will add files you choose to 
 files that are already in the module. No files will be overridden.
  
 To remove modules using a prompt:
-
+	
 	$ npm run remove-module
-
 
 ##Contributors
 
-- joao@voorhoede.nl
-- celine@voorhoede.nl
+[João Carmona](https://github.com/jpcarmona) - joao@voorhoede.nl
+[Celine Kurpershoek](https://github.com/celinekurpershoek) - celine@voorhoede.nl
