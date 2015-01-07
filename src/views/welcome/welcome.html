@@ -2,9 +2,53 @@
 
 {% block title %}welcome | {{ super() }}{% endblock %}
 
+{% block styles %}
+{{ super() }}
+<!--<style>{% include "views/welcome/welcome.less" %}</style>-->
+{% endblock %}
+
 {% block content %}
     <!-- welcome view -->
+<section class="welcome-view">
     <h1>Welcome</h1>
     <p>The Email Template Guide is a project by De Voorhoede.</p>
+
+    <h2>Index</h2>
+    <ul>
+        <li><a href="#why">Why did we create this guide?</a></li>
+        <li><a href="#what">What can you expect?</a></li>
+        <li><a href="#demo">Demo template</a></li>
+        <li><a href="#suggestions">Suggestions/Readings</a></li>
+    </ul>
+
+    <h2 id="why">Why did we create this guide?</h2>
+    <p>
+        At the Voorhoede we like to get things automated, not only because it saves you a lot of time
+        but we also because its fun! This email-guide is based on
+        <a href="https://github.com/voorhoede/front-end-guide" target="_blank">our front-end guide</a>.
+    </p>
+    <h2 id="what">What can you expect?</h2>
+    <p>
+        The purpose of this project is to roll out mailings rather painless and fast. Below we have
+        listes some of the automated feautures:
+    </p>
+    <ul>
+        <li><a href="https://github.com/voorhoede/email-template-guide#adding-and-removing-modules"
+               target="_blank">Adding and removing a modules</a></li>
+    </ul>
+
+    <h2 id="demo">Demo template</h2>
+    <p>We have created a simple demo template for you, just as a start.</p>
+
+    <h2 id="suggestions">Suggestions</h2>
+    <p>Before you start to create or when you get stuck on some styling for the email clients. We would
+        recommodent the following documentations/tutorials:</p>
+    <ul>
+        <li><a href="#">Document link 1</a></li>
+        <li><a href="#">Document link 1</a></li>
+        <li><a href="#">Document link 1</a></li>
+    </ul>
+</section>
+
     <!-- /welcome view -->
 {% endblock %}
