@@ -32,7 +32,7 @@ You can also test your layouts on different email clients with [Litmus](http://l
 ##Deliverables
 
 1. [x] Fork Email-guide from Front-end-guide and cleanup repo.
-1. [x] configurate gulp inline-css
+1. [x] Configurate gulp inline-css
 1. [x] Configurate gulp litmus
 1. [ ] Setup demo email
 1. [ ] Nice to have: Poll litmus results and add to a results page.
@@ -44,7 +44,35 @@ You can also test your layouts on different email clients with [Litmus](http://l
 	1. [ ] Best practices for gmail
 	1. [ ] Best practices for outlook
 
+###Adding and removing modules
+
+* Components and views are ***modules***
+* You can create or remove modules using a prompt.
+
+	$ npm run add-module
+
+Will ask you:
+
+* If you want to create a ***component*** or a ***view***
+* What you want the name of the module to be
+* Which types of files you want the module to contain
+
+Executing this command will:
+
+* Create a new directory with the given name in the components or views directory
+* Copy the chosen types of files from the `_template` directory into the newly created directory
+* Rename the copied files to match the module name (with the exception of `README.md`)
+* Fill placeholder inside the copied files with the designated module type and name.
+
+Entering the name of a module that already exists, will add files you choose to the
+files that are already in the module. No files will be overridden.
+ 
+To remove modules using a prompt:
+
+	$ npm run remove-module
+
+
 ##Contributors
 
-- Joao@voorhoede.nl
-- Celine@voorhoede.nl
+- joao@voorhoede.nl
+- celine@voorhoede.nl

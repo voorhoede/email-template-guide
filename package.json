@@ -7,7 +7,9 @@
   "scripts": {
     "build": "gulp build_guide && gulp zip_dist",
     "develop": "gulp watch",
-    "test": "gulp litmus"
+    "test": "gulp litmus",
+    "add-module" : "gulp create_module",
+    "remove-module" : "gulp remove_module"
   },
   "repository": {
     "type": "git",
