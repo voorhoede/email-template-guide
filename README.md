@@ -75,5 +75,5 @@ To remove modules using a prompt:
 
 ##Contributors
 
-[João Carmona](https://github.com/jpcarmona) - joao@voorhoede.nl
-[Celine Kurpershoek](https://github.com/celinekurpershoek) - celine@voorhoede.nl
+* [João Carmona](https://github.com/jpcarmona) - joao@voorhoede.nl
+* [Celine Kurpershoek](https://github.com/celinekurpershoek) - celine@voorhoede.nl
