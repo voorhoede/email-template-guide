@@ -99,20 +99,16 @@ The Email Template Guide comes packed with a set of [variables](http://mozilla.g
 * **`paths.root`** resolves to the relative web path to the `dist/` directory. Usage:
 
 	```html
-	
-		<a href="{{ paths.root }}" rel="home">...</a>
-		
 		<a href="{{ path.root }}views/_style-guide/style-guide.html">...</a>
 	```
 
 * **`paths.assets`** resolves to the relative web path to the `dist/assets/` directory. Usage:
 
 	```html
-	
 		<img src="{{ paths.assets }}components/app-logo/demo-logo.svg" alt="demo">
 	```
 			
-* **`pkg`** contains the JSON of [`package.json`](../package.json).
+* **`pkg`** contains the JSON of [`package.json`](package.json).
 
 
 #### Template inheritance
