@@ -57,7 +57,6 @@ function buildHtmlTask() {
 	configureNunjucks();
 	var moduleIndex = moduleUtility.getModuleIndex();
 	return srcFiles('html')
-		.pipe(cached('html'))
 		.pipe(plumber()) // prevent pipe break on nunjucks render error
 		.pipe(nunjucksRender(function(file){
 			return _.extend(
@@ -103,7 +102,6 @@ function buildPreviewsTask() {
 
 function buildLessTask() {
 	return srcFiles('less')
-		.pipe(cached('less'))
 		.pipe(plumber()) // prevent pipe break on less parsing
 		.pipe(less())
 		.pipe(plumber.stop())
@@ -127,13 +125,14 @@ function editModule() {
 	return moduleUtility.edit();
 }
 
-function inlineCssTask(event){
+function inlineCssTask(){
 	return gulp.src('dist/views/**/*.html')
 		.pipe(inlineCss({
 			applyStyleTags: true,
 			applyLinkTags: true,
 			removeStyleTags: true,
-			removeLinkTags: true
+			removeLinkTags: true,
+			preserveMediaQueries: true
 		}))
 		.pipe(gulp.dest('dist/views/'))
 		.pipe(reloadBrowser({ stream:true }))
@@ -270,8 +269,9 @@ function srcFiles(filetype) {
 function watchTask () {
 	gulp.watch(paths.assetFiles, ['build_assets']);
 	gulp.watch(paths.htmlFiles, ['build_html', 'build_previews']);
-	gulp.watch(paths.lessFiles, function() { runSequence('build_less', 'build_html', 'build_previews', 'inlineCss'); });
+	gulp.watch(paths.lessFiles, function() { runSequence('build_less', 'build_html', 'build_previews', 'inline_css'); });
 }
+
 function zipDistTask () {
 	return gulp.src(paths.dist + '**/*')
 		.pipe(zip(pkg.name + '.zip'))
