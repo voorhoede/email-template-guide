@@ -127,9 +127,14 @@ function editModule() {
 	return moduleUtility.edit();
 }
 
-function inlineCssTask(){
+function inlineCssTask(event){
 	return gulp.src('dist/views/**/*.html')
-		.pipe(inlineCss())
+		.pipe(inlineCss({
+			applyStyleTags: true,
+			applyLinkTags: true,
+			removeStyleTags: true,
+			removeLinkTags: true
+		}))
 		.pipe(gulp.dest('dist/views/'))
 		.pipe(reloadBrowser({ stream:true }))
 		.on('error', util.log);
@@ -263,13 +268,10 @@ function srcFiles(filetype) {
 }
 
 function watchTask () {
-	util.log(util.colors.green('Watching..'));
-
 	gulp.watch(paths.assetFiles, ['build_assets']);
 	gulp.watch(paths.htmlFiles, ['build_html', 'build_previews']);
-	gulp.watch(paths.lessFiles, function() { runSequence('build_less', 'inline_css'); });
+	gulp.watch(paths.lessFiles, function() { runSequence('build_less', 'build_html', 'build_previews', 'inlineCss'); });
 }
-
 function zipDistTask () {
 	return gulp.src(paths.dist + '**/*')
 		.pipe(zip(pkg.name + '.zip'))

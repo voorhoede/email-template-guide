@@ -1,5 +1,10 @@
 {% extends "views/_base-view/base-view.html" %}
 
+{% block styles %}
+{{ super() }}
+<style>{% include "views/home/home.less" %}</style>
+{% endblock %}
+
 {% block content %}
 <!-- home view -->
 <center>
