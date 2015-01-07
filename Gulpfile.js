@@ -6,6 +6,7 @@ var del = require('del');
 var gulpif = require('gulp-if');
 var filter = require('gulp-filter');
 var fs = require('fs');
+var inlineCss = require('gulp-inline-css');
 var gulp = require('gulp');
 var karma = require('gulp-karma');
 var lazypipe = require('lazypipe');
@@ -23,7 +24,7 @@ var prism = require('./lib/prism');
 var rename = require('gulp-rename');
 var replace = require('gulp-replace');
 var runSequence = require('run-sequence');
-//var sourcemaps = require('gulp-sourcemaps');
+var util = require('gulp-util');
 var zip = require('gulp-zip');
 
 /* Shared configuration (A-Z) */
@@ -35,7 +36,7 @@ var pkg = require('./package.json');
 gulp.task('default', ['build_guide']);
 gulp.task('build', ['build_html', 'build_less']);
 gulp.task('build_clean', function(cb) { runSequence('clean_dist', 'build', cb); });
-gulp.task('build_guide', function(cb) { runSequence('build_clean', 'build_previews', 'build_module_info', cb); });
+gulp.task('build_guide', function(cb) { runSequence('build_clean', 'build_previews', 'inline_css', 'build_module_info', cb); });
 gulp.task('build_html', buildHtmlTask);
 gulp.task('build_less', buildLessTask);
 gulp.task('build_module_info', buildModuleInfoTask);
@@ -44,6 +45,7 @@ gulp.task('clean_dist', function (cb) { del([paths.dist], cb); });
 gulp.task('create_module', createModule);
 gulp.task('edit_module', editModule);
 gulp.task('litmus', runLitmusTests);
+gulp.task('inline_css', inlineCssTask);
 gulp.task('remove_module', removeModule);
 gulp.task('serve', serveTask);
 gulp.task('watch', function(/*cb*/) { runSequence(['build_guide', 'serve'], watchTask); });
@@ -55,6 +57,7 @@ function buildHtmlTask() {
 	configureNunjucks();
 	var moduleIndex = moduleUtility.getModuleIndex();
 	return srcFiles('html')
+		.pipe(cached('html'))
 		.pipe(plumber()) // prevent pipe break on nunjucks render error
 		.pipe(nunjucksRender(function(file){
 			return _.extend(
@@ -100,6 +103,7 @@ function buildPreviewsTask() {
 
 function buildLessTask() {
 	return srcFiles('less')
+		.pipe(cached('less'))
 		.pipe(plumber()) // prevent pipe break on less parsing
 		.pipe(less())
 		.pipe(plumber.stop())
@@ -107,8 +111,7 @@ function buildLessTask() {
 			if(p.dirname === '.'){ p.dirname = 'assets'; } // output root src files to assets dir
 		}))
 		.pipe(gulp.dest(paths.dist)) // write the css and source maps
-		.pipe(filter('**/*.css')) // filtering stream to only css files
-		.pipe(reloadBrowser({ stream:true }));
+		.pipe(filter('**/*.css')); // filtering stream to only css files
 }
 
 function configureNunjucks() {
@@ -122,6 +125,14 @@ function createModule() {
 }
 function editModule() {
 	return moduleUtility.edit();
+}
+
+function inlineCssTask(){
+	return gulp.src('dist/views/**/*.html')
+		.pipe(inlineCss())
+		.pipe(gulp.dest('dist/views/'))
+		.pipe(reloadBrowser({ stream:true }))
+		.on('error', util.log);
 }
 
 var formatHtml = lazypipe()
@@ -252,10 +263,11 @@ function srcFiles(filetype) {
 }
 
 function watchTask () {
+	util.log(util.colors.green('Watching..'));
+
 	gulp.watch(paths.assetFiles, ['build_assets']);
 	gulp.watch(paths.htmlFiles, ['build_html', 'build_previews']);
-	gulp.watch(paths.jsFiles,   ['build_js']);
-	gulp.watch(paths.lessFiles, ['build_less']);
+	gulp.watch(paths.lessFiles, function() { runSequence('build_less', 'inline_css'); });
 }
 
 function zipDistTask () {

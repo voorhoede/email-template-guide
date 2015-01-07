@@ -1,32 +1,20 @@
-<!doctype html>
-<html>
-<head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-
-    {% block styles %}
-        <link rel="stylesheet" href="{{ paths.assets }}index.css">
-    {% endblock %}
-</head>
-<body data-module="{{ module.id }}">
-{% block appHeader %}
-<!-- header newsletter -->
-{% endblock %}
-
-{% block main %}
-<main>
-    {% block content %}
-    {% endblock %}
-</main>
-{% endblock %}
-
-{% block appFooter %}
-<!-- footer newsletter -->
-{% endblock %}
-
-{% block scripts %}
-    <script>{% include "components/_app-debug/app-debug.js" %}</script>
-    <style type="text/css">{% include "components/_app-debug/app-debug.css" %}</style>
-{% endblock %}
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+		<title></title>
+	
+		{% block styles %}
+			<link rel="stylesheet" href="{{ paths.assets }}index.css">
+    	{% endblock %}
+	</head>
+<body>
+	{% block main %}
+	<main>
+	    {% block content %}
+	    {% endblock %}
+	</main>
+	{% endblock %}
 </body>
 </html>

@@ -31,8 +31,6 @@
     					data-ng-options="module.name group by module.type for (id, module) in viewer.modules"></select>
 
     		</div>
-            <button class="viewer-button viewer-icon-label" data-ng-class="{ 'is-active': viewer.showAnnotations }"
-                    data-ng-click="viewer.toggleAnnotations()" title="toggle annotations"></button>
             <button class="viewer-button viewer-icon-info-outline" data-ng-class="{ 'is-active': viewer.info.isOpen }"
                     data-ng-click="viewer.info.isOpen = !viewer.info.isOpen " title="toggle module info"></button>
             <a data-ng-href="{{ viewer.getModulePath() }}" target="_blank" title="open module in new window"
