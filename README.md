@@ -28,3 +28,23 @@ You can also test your layouts on different email clients with [Litmus](http://l
 **Deploy and pack**
 
 	$ npm run build
+
+##Deliverables
+
+1. [x] Fork Email-guide from Front-end-guide and cleanup repo.
+1. [x] configurate gulp inline-css
+1. [x] Configurate gulp litmus
+1. [ ] Setup demo email
+1. [ ] Nice to have: Poll litmus results and add to a results page.
+1. [ ] Nice to have: Make it possible to let inline-css ignore specific styles.
+
+##Documentation
+
+1. [ ] Best practices document
+	1. [ ] Best practices for gmail
+	1. [ ] Best practices for outlook
+
+##Contributors
+
+- Joao@voorhoede.nl
+- Celine@voorhoede.nl
