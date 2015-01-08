@@ -1,0 +1,300 @@
+/* demo_fluid-template view */
+// add style rules for this view.
+/* /demo_fluid-template view */
+
+@dvh-red: 				#e65e3e;
+@dvh-green: 			#58b2bd;
+@dvh-blue: 				#00373d;
+@dvh-yellow: 			#e6c73e;
+
+/* /\/\/\/\/\/\/\/\/ TEMPLATE STYLES /\/\/\/\/\/\/\/\/ */
+
+/* ========== Page Styles ========== */
+
+#bodyCell{padding:20px;}
+#templateContainer{width:100%;}
+
+/**
+* @tab Page
+* @section background style
+* @tip Set the background color and top border for your email. You may want to choose colors that match your company's branding.
+* @theme page
+*/
+body, #bodyTable{
+	/*@editable*/ background-color:#DEE0E2;
+}
+
+/**
+* @tab Page
+* @section email border
+* @tip Set the border for your email.
+*/
+#templateContainer{
+	/*@editable*/ border:1px solid #BBBBBB;
+}
+
+/**
+* @tab Page
+* @section heading 1
+* @tip Set the styling for all first-level headings in your emails. These should be the largest of your headings.
+* @style heading 1
+*/
+h1{
+	/*@editable*/ color:#202020 !important;
+	display:block;
+	/*@editable*/ font-family:Helvetica;
+	/*@editable*/ font-size:26px;
+	/*@editable*/ font-style:normal;
+	/*@editable*/ font-weight:bold;
+	/*@editable*/ line-height:100%;
+	/*@editable*/ letter-spacing:normal;
+	margin-top:0;
+	margin-right:0;
+	margin-bottom:10px;
+	margin-left:0;
+	/*@editable*/ text-align:left;
+}
+
+/**
+* @tab Page
+* @section heading 2
+* @tip Set the styling for all second-level headings in your emails.
+* @style heading 2
+*/
+h2{
+	/*@editable*/ color:#404040 !important;
+	display:block;
+	/*@editable*/ font-family:Helvetica;
+	/*@editable*/ font-size:20px;
+	/*@editable*/ font-style:normal;
+	/*@editable*/ font-weight:bold;
+	/*@editable*/ line-height:100%;
+	/*@editable*/ letter-spacing:normal;
+	margin-top:0;
+	margin-right:0;
+	margin-bottom:10px;
+	margin-left:0;
+	/*@editable*/ text-align:left;
+}
+
+/**
+* @tab Page
+* @section heading 3
+* @tip Set the styling for all third-level headings in your emails.
+* @style heading 3
+*/
+h3{
+	/*@editable*/ color:#606060 !important;
+	display:block;
+	/*@editable*/ font-family:Helvetica;
+	/*@editable*/ font-size:16px;
+	/*@editable*/ font-style:italic;
+	/*@editable*/ font-weight:normal;
+	/*@editable*/ line-height:100%;
+	/*@editable*/ letter-spacing:normal;
+	margin-top:0;
+	margin-right:0;
+	margin-bottom:10px;
+	margin-left:0;
+	/*@editable*/ text-align:left;
+}
+
+/**
+* @tab Page
+* @section heading 4
+* @tip Set the styling for all fourth-level headings in your emails. These should be the smallest of your headings.
+* @style heading 4
+*/
+h4{
+	/*@editable*/ color:#808080 !important;
+	display:block;
+	/*@editable*/ font-family:Helvetica;
+	/*@editable*/ font-size:14px;
+	/*@editable*/ font-style:italic;
+	/*@editable*/ font-weight:normal;
+	/*@editable*/ line-height:100%;
+	/*@editable*/ letter-spacing:normal;
+	margin-top:0;
+	margin-right:0;
+	margin-bottom:10px;
+	margin-left:0;
+	/*@editable*/ text-align:left;
+}
+
+/* ========== Header Styles ========== */
+
+/**
+* @tab Header
+* @section preheader style
+* @tip Set the background color and bottom border for your email's preheader area.
+* @theme header
+*/
+#templatePreheader{
+	/*@editable*/ background-color:#F4F4F4;
+}
+
+/**
+* @tab Header
+* @section preheader text
+* @tip Set the styling for your email's preheader text. Choose a size and color that is easy to read.
+*/
+.preheaderContent{
+	/*@editable*/ color:#808080;
+	/*@editable*/ font-family:Helvetica;
+	/*@editable*/ font-size:10px;
+	/*@editable*/ line-height:125%;
+	/*@editable*/ text-align:left;
+	/*@editable*/ padding-bottom: 20px;
+	/*@editable*/ padding-left: 20px;
+	/*@editable*/ padding-top: 20px;
+	/*@editable*/ padding-right: 20px;
+}
+
+/**
+* @tab Header
+* @section preheader link
+* @tip Set the styling for your email's preheader links. Choose a color that helps them stand out from your text.
+*/
+.preheaderContent a:link, .preheaderContent a:visited, /* Yahoo! Mail Override */ .preheaderContent a .yshortcuts /* Yahoo! Mail Override */{
+	/*@editable*/ color:#606060;
+	/*@editable*/ font-weight:normal;
+	/*@editable*/ text-decoration:underline;
+}
+
+/**
+* @tab Header
+* @section header style
+* @tip Set the background color and borders for your email's header area.
+* @theme header
+*/
+#templateHeader{
+	/*@editable*/ background-color: @dvh-yellow;
+	/*@editable*/ border-top: #A38D2C;
+	/*@editable*/ border-bottom: #A38D2C;
+}
+
+/**
+* @tab Header
+* @section header text
+* @tip Set the styling for your email's header text. Choose a size and color that is easy to read.
+*/
+.headerContent{
+	/*@editable*/ color: #ffffff;
+//	/*@editable*/ background-color: red;
+	/*@editable*/ font-family: Helvetica;
+	/*@editable*/ font-size: 20px;
+	/*@editable*/ font-weight: bold;
+	/*@editable*/ line-height: 100%;
+	/*@editable*/ padding-top: 20px;
+	/*@editable*/ padding-right: 20px;
+	/*@editable*/ padding-bottom: 20px;
+	/*@editable*/ padding-left: 20px;
+	/*@editable*/ text-align: left;
+	/*@editable*/ vertical-align: middle;
+}
+
+/**
+* @tab Header
+* @section header link
+* @tip Set the styling for your email's header links. Choose a color that helps them stand out from your text.
+*/
+.headerContent a:link, .headerContent a:visited, /* Yahoo! Mail Override */ .headerContent a .yshortcuts /* Yahoo! Mail Override */{
+	/*@editable*/ color:#EB4102;
+	/*@editable*/ font-weight:normal;
+	/*@editable*/ text-decoration:underline;
+}
+
+#headerImage{
+	height: auto;
+	max-width: 100%;
+}
+
+/* ========== Body Styles ========== */
+
+/**
+* @tab Body
+* @section body style
+* @tip Set the background color and borders for your email's body area.
+*/
+#templateBody{
+	/*@editable*/ background-color:#F4F4F4;
+	/*@editable*/ border-top:1px solid #FFFFFF;
+	/*@editable*/ border-bottom:1px solid #CCCCCC;
+}
+
+/**
+* @tab Body
+* @section body text
+* @tip Set the styling for your email's main content text. Choose a size and color that is easy to read.
+* @theme main
+*/
+.bodyContent{
+	/*@editable*/ color:#505050;
+	/*@editable*/ font-family:Helvetica;
+	/*@editable*/ font-size:14px;
+	/*@editable*/ line-height:150%;
+	padding-top:20px;
+	padding-right:20px;
+	padding-bottom:20px;
+	padding-left:20px;
+	/*@editable*/ text-align:left;
+}
+
+/**
+* @tab Body
+* @section body link
+* @tip Set the styling for your email's main content links. Choose a color that helps them stand out from your text.
+*/
+.bodyContent a:link, .bodyContent a:visited, /* Yahoo! Mail Override */ .bodyContent a .yshortcuts /* Yahoo! Mail Override */{
+	/*@editable*/ color:#EB4102;
+	/*@editable*/ font-weight:normal;
+	/*@editable*/ text-decoration:underline;
+}
+
+.bodyContent img{
+	display:inline;
+	height:auto;
+	max-width: 100%;
+}
+
+/* ========== Footer Styles ========== */
+
+/**
+* @tab Footer
+* @section footer style
+* @tip Set the background color and borders for your email's footer area.
+* @theme footer
+*/
+#templateFooter{
+	/*@editable*/ background-color:#F4F4F4;
+	/*@editable*/ border-top:1px solid #FFFFFF;
+}
+
+/**
+* @tab Footer
+* @section footer text
+* @tip Set the styling for your email's footer text. Choose a size and color that is easy to read.
+* @theme footer
+*/
+.footerContent{
+	/*@editable*/ color:#808080;
+	/*@editable*/ font-family:Helvetica;
+	/*@editable*/ font-size:10px;
+	/*@editable*/ line-height:150%;
+	padding-top:20px;
+	padding-right:20px;
+	padding-bottom:20px;
+	padding-left:20px;
+	/*@editable*/ text-align:left;
+}
+
+/**
+* @tab Footer
+* @section footer link
+* @tip Set the styling for your email's footer links. Choose a color that helps them stand out from your text.
+*/
+.footerContent a:link, .footerContent a:visited, /* Yahoo! Mail Override */ .footerContent a .yshortcuts, .footerContent a span /* Yahoo! Mail Override */{
+	/*@editable*/ color:#606060;
+	/*@editable*/ font-weight:normal;
+	/*@editable*/ text-decoration:underline;
+}
