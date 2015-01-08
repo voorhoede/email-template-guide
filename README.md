@@ -40,7 +40,7 @@ You can also test your layouts on different email clients with [Litmus](http://l
 ##Todo && Issues
 
 * [TODO list](docs/todo.md)
-* [Issues](docs/todo.md)
+* [Issues](https://github.com/voorhoede/email-template-guide/issues)
 
 ##Contributors
 

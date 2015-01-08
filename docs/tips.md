@@ -1,4 +1,4 @@
-#tips
+#Tips
 
 Some links to make your newsletter building less painfull.
 

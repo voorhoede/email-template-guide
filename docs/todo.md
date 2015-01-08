@@ -11,4 +11,4 @@
 
 1. [x] How to work with the module manager
 1. [x] Templating with Nunjucks
-1. [x] Best practices document
+1. [x] Tips for email newsletter
