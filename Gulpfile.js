@@ -34,8 +34,7 @@ var pkg = require('./package.json');
 
 /* Register default & custom tasks (A-Z) */
 gulp.task('default', ['build_guide']);
-gulp.task('build', ['build_html', 'build_less']);
-gulp.task('build_clean', function(cb) { runSequence('clean_dist', 'build', cb); });
+gulp.task('build_clean', function(cb) { runSequence('clean_dist', 'build_less', 'build_html', cb); });
 gulp.task('build_guide', function(cb) { runSequence('build_clean', 'build_previews', 'inline_css', 'build_module_info', cb); });
 gulp.task('build_html', buildHtmlTask);
 gulp.task('build_less', buildLessTask);
@@ -108,6 +107,8 @@ function buildLessTask() {
 		.pipe(rename(function(p){
 			if(p.dirname === '.'){ p.dirname = 'assets'; } // output root src files to assets dir
 		}))
+		.pipe(gulp.dest('src')) // write the css and source maps for inline css
+		//should filter the template files and generate for them the css in src.
 		.pipe(gulp.dest(paths.dist)) // write the css and source maps
 		.pipe(filter('**/*.css')); // filtering stream to only css files
 }
@@ -239,8 +240,7 @@ function srcFiles(filetype) {
 }
 
 function watchTask () {
-	gulp.watch(paths.assetFiles, ['build_assets']);
-	gulp.watch(paths.htmlFiles, ['build_html', 'build_previews']);
+	gulp.watch(paths.htmlFiles, ['build_less', 'build_html', 'build_previews']);
 	gulp.watch(paths.lessFiles, function() { runSequence('build_less', 'build_html', 'build_previews', 'inline_css'); });
 }
 
