@@ -124,7 +124,7 @@
                 { name: 'M', width: 320, icon: 'mobile' },
                 { name: 'N', width: 520, icon: 'newsletter' }
             ])
-        .constant('DEFAULT_MODULE', 'views/home')
+        .constant('DEFAULT_MODULE', 'views/welcome')
         .constant('MODULES', [
             {# create list of modules based on module index #}
             {% for item in moduleIndex.components | match('^[a-z]', 'name') %}
