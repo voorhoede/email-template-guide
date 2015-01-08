@@ -10,59 +10,65 @@
 {% block content %}
     <!-- welcome view -->
 <section class="welcome-view">
-    <h1>Welcome</h1>
-    <p>The Email Template Guide is a project by De Voorhoede.</p>
+    <section class="intro-header">
+        <div class="intro-header-credits">
+            <a href="http://www.voorhoede.nl">De Voorhoede</a>
+        </div>
+        <hr />
+        <div class="intro-header-content">
+            <h1>Email Template Guide</h1>
+            <p>Let's make email development faster.</p>
+        </div>
+    </section>
 
-    <h2>Index</h2>
-    <ul>
-        <li><a href="#why">Why did we create this guide?</a></li>
-        <li><a href="#what">What can you expect?</a></li>
-        <li><a href="#demo">Demo template</a></li>
-        <li><a href="#suggestions">Suggestions/Readings</a></li>
-    </ul>
+    <section class="main-content">
+        <h2>What is it?</h2>
+        <p>
+            At the Voorhoede we like to get things automated, not only because it saves you a lot of time
+            but we also because its fun! This email-guide is based on
+            <a href="https://github.com/voorhoede/front-end-guide">our front-end guide</a>. And generates
+            html emails for you. It automattically inserts your styles inline but keeps your mediaqueries.
+            It is also configurated to work with <a href="http://www.litmus.com">Litmus</a> to test your
+            emails with a single command!
+        </p>
 
-    <h2 id="why">Why did we create this guide?</h2>
-    <p>
-        At the Voorhoede we like to get things automated, not only because it saves you a lot of time
-        but we also because its fun! This email-guide is based on
-        <a href="https://github.com/voorhoede/front-end-guide">our front-end guide</a>.
-    </p>
-    <h2 id="what">What can you expect?</h2>
-    <p>
-        The purpose of this project is to roll out mailings rather painless and fast. If you have
-        any questions you can take a look at <a href="https://github.com/voorhoede/email-template-guide/wiki">our project wiki</a>.
-    </p>
-    <ul>
-        <li><a href="https://github.com/voorhoede/email-template-guide#adding-and-removing-modules"
-               target="_blank">Adding and removing a modules</a></li>
-        <li>Automatically inlining CSS styles</li>
-        <li>Testing your newsletter layouts with <a href="http://litmus">Litmus</a></li>
-        <li>Deliver a self-contained packaged that can be sent or hosted easily</li>
-    </ul>
+        <p>Do you have any questions about the guide itself or the project? Take a look at
+            <a href="https://github.com/voorhoede/email-template-guide/wiki">our project wiki</a></p>
 
-    <h2 id="demo">Demo template</h2>
-    <p>We have created a simple demo template for you, just as a start. You can use the header bar
-    to navigate to the template.</p>
+        <h3>Some tasks it takes out of hand:</h3>
+        <ul>
+            <li><a href="https://github.com/voorhoede/email-template-guide#adding-and-removing-modules"
+                   target="_blank">Simply adding and removing a modules</a></li>
+            <li>Automatically inlining CSS styles</li>
+            <li>Testing your newsletter layouts with <a href="http://litmus">Litmus</a></li>
+            <li>Deliver a self-contained packaged that can be sent or hosted easily</li>
+        </ul>
 
-    <h2 id="suggestions">Suggestions</h2>
-    <p>Before you start to create or when you get stuck on some styling for the email clients. We
-        would recommodent the following documentations/tutorials:</p>
-    <p>Documents:</p>
+        <h2 id="demo">Demo template</h2>
+        <p>We have created a simple demo template for you, just as a start. You can use the header bar
+            to navigate to the template.</p>
 
-    <ol>
-        <li><a href="http://www.smashingmagazine.com/2014/08/04/improve-your-email-workflow-with-modular-design/">Modular email design</a></li>
-        <li><a href="http://responsiveemailpatterns.com/">Responsive email patters</a></li>
-        <li><a href="http://responsiveemailresources.com/">Responsive email resources</a></li>
-        <li><a href="http://www.pardot.com/faqs/emails/email-template-best-practices/">Best practices listed by asset</a></li>
-        <li><a href="https://litmus.com/blog/html-email-coding-101-infographic/email-coding-101">Litmus Best practices infographic</a></li>
-        <li><a href="https://github.com/mailchimp/Email-Blueprints">Email Blueprints by Mailchimp</a></li>
-    </ol>
+        <h2 id="suggestions">Suggestions</h2>
+        <p>Before you start to create or when you get stuck on some styling for the email clients. We
+            would recommodent the following documentations/tutorials:</p>
+        <p>Documents:</p>
+
+        <ol>
+            <li><a href="http://www.smashingmagazine.com/2014/08/04/improve-your-email-workflow-with-modular-design/">Modular email design</a></li>
+            <li><a href="http://responsiveemailpatterns.com/">Responsive email patters</a></li>
+            <li><a href="http://responsiveemailresources.com/">Responsive email resources</a></li>
+            <li><a href="http://www.pardot.com/faqs/emails/email-template-best-practices/">Best practices listed by asset</a></li>
+            <li><a href="https://litmus.com/blog/html-email-coding-101-infographic/email-coding-101">Litmus Best practices infographic</a></li>
+            <li><a href="https://github.com/mailchimp/Email-Blueprints">Email Blueprints by Mailchimp</a></li>
+        </ol>
 
 
-    <p>Specific docs:</p>
-    <ol>
-        <li><a href="https://litmus.com/blog/fixing-table-alignment-in-yahoo-mail">Yahoo alignment</a></li>
-    </ol>
+        <p>Specific docs:</p>
+        <ol>
+            <li><a href="https://litmus.com/blog/fixing-table-alignment-in-yahoo-mail">Yahoo alignment</a></li>
+        </ol>
+    </section>
+
 </section>
 
     <!-- /welcome view -->
