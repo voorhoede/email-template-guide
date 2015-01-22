@@ -26,33 +26,42 @@ paths.srcFiles = [
 paths.htmlFiles = paths.srcFiles.map(function(path){ return path + '.html'; });
 paths.lessFiles = paths.srcFiles.map(function(path){ return path + '*/*.less'; });
 
-//clients: https://litmus.com/emails/clients.xml
-var litmusConfig = {
-	username: 'username',
-	password: '###',
-	url: 'voorhode',
-	applications: [
-		//desktop
-		'ol2003',
-		'ol2007',
-		'ol2010',
-		'ol2013',
-		'appmail6',
-		//browser
-		'outlookcom', //on ie
-		'yahoo', //on ie
-		'gmailnew', //on ie
-		'ffgmailnew',
-		'chromegmailnew',
-		//devices
-		'android4',
-		'androidgmailapp',
-		'ipad',
-		'ipadmini',
-		'iphone5s',
-		'windowsphone8'
-	]
+var litmusSelectedApplications = {
+		'ol2003' : true,
+		'ol2007' : true,
+		'ol2010' : true,
+		'ol2013' : true,
+		'appmail6' : true,
+		'outlookcom' : true,
+		'yahoo' : true,
+		'gmailnew' : true,
+		'ffgmailnew' : true,
+		'chromegmailnew' : true,
+		'android4' : true,
+		'androidgmailapp' : true,
+		'ipad' : true,
+		'ipadmini' :  true,
+		'iphone5s' : true,
+		'windowsphone8' : true
 };
+
+var litmusUserCredentials = {
+	username: 'litmus_username',
+	password: 'litmus_password',
+	url: 'https://yourcompany.litmus.com'
+};
+
+var applications = [];
+
+for(apps in litmusSelectedApplications){
+	if(litmusSelectedApplications[apps] === true) {
+		applications.push(apps);
+	}
+}
+
+var litmusConfig = litmusUserCredentials;
+litmusConfig.applications = applications;
+
 
 module.exports = {
 	paths: paths,
