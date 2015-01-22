@@ -15,7 +15,7 @@ You can also test your layouts on different email clients with [Litmus](http://l
 
 **Install all dependencies**
 
-	$ npm i && npm i -g gulp
+	$ npm install
 
 **Build and watch**
 

@@ -5,11 +5,11 @@
   "main": "source/index.js",
   "private": "yes",
   "scripts": {
-    "build": "gulp build_guide && gulp zip_dist",
-    "develop": "gulp watch",
-    "test": "gulp litmus",
-    "add-module" : "gulp create_module",
-    "remove-module" : "gulp remove_module"
+    "build": "./node_modules/.bin/gulp build_guide && ./node_modules/.bin/gulp zip_dist",
+    "develop": "./node_modules/.bin/gulp watch",
+    "test": "./node_modules/.bin/gulp litmus",
+    "add-module" : "./node_modules/.bin/gulp create_module",
+    "remove-module" : "./node_modules/.bin/gulp remove_module"
   },
   "repository": {
     "type": "git",
