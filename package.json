@@ -8,8 +8,8 @@
     "build": "./node_modules/.bin/gulp build_guide && ./node_modules/.bin/gulp zip_dist",
     "develop": "./node_modules/.bin/gulp watch",
     "test": "./node_modules/.bin/gulp litmus",
-    "add-module" : "./node_modules/.bin/gulp create_module",
-    "remove-module" : "./node_modules/.bin/gulp remove_module"
+    "add-module": "./node_modules/.bin/gulp create_module",
+    "remove-module": "./node_modules/.bin/gulp remove_module"
   },
   "repository": {
     "type": "git",
@@ -41,6 +41,7 @@
     "gulp-karma": "0.0.4",
     "gulp-less": "^2.0.1",
     "gulp-litmus": "0.0.7",
+    "gulp-mail": "0.0.1",
     "gulp-minify-html": "^0.1.6",
     "gulp-newer": "^0.5.0",
     "gulp-plumber": "^0.6.6",

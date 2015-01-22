@@ -26,6 +26,7 @@ var replace = require('gulp-replace');
 var runSequence = require('run-sequence');
 var util = require('gulp-util');
 var zip = require('gulp-zip');
+var mail = require('gulp-mail');
 
 /* Shared configuration (A-Z) */
 var config = require('./config.js');
@@ -43,6 +44,7 @@ gulp.task('build_previews', buildPreviewsTask);
 gulp.task('clean_dist', function (cb) { del([paths.dist], cb); });
 gulp.task('create_module', createModule);
 gulp.task('edit_module', editModule);
+gulp.task('email_test', sendEmailTest);
 gulp.task('litmus', runLitmusTests);
 gulp.task('inline_css', inlineCssTask);
 gulp.task('remove_module', removeModule);
@@ -223,6 +225,18 @@ function runLitmusTests(){
 	return gulp.src('dist/views/**/*.html')
 		.pipe(litmus(config.litmusConfig))
 		.pipe(gulp.dest('dist/email'));
+}
+
+function sendEmailTest(){
+	return gulp.src('dist/views/**/*.html')
+		.pipe(mail({
+			to: [
+				''
+			],
+			from: '',
+			subject: 'test',
+			html: '<h1>Hello!</h1>'
+		}));
 }
 
 function serveTask() {
