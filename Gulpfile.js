@@ -12,6 +12,7 @@ var gulp = require('gulp');
 var less = require('gulp-less');
 var litmus = require('gulp-litmus');
 var moduleUtility = require('./lib/module-utility');
+var emailUtility = require('./lib/email-sender');
 var nunjucksMarkdown = require('nunjucks-markdown');
 var nunjucksRender = require('./lib/nunjucks-render');
 var path = require('path');
@@ -21,7 +22,6 @@ var rename = require('gulp-rename');
 var runSequence = require('run-sequence');
 var util = require('gulp-util');
 var zip = require('gulp-zip');
-var mail = require('gulp-mail');
 
 /* Shared configuration (A-Z) */
 var config = require('./config.js');
@@ -208,15 +208,7 @@ function runLitmusTests(){
 }
 
 function sendEmailTest(){
-	return gulp.src('dist/views/**/*.html')
-		.pipe(mail({
-			to: [
-				''
-			],
-			from: '',
-			subject: 'test',
-			html: '<h1>Hello!</h1>'
-		}));
+	return emailUtility.sendEmail();
 }
 
 function serveTask() {
