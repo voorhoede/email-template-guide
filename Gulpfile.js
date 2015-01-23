@@ -1,28 +1,23 @@
+'use strict';
+
 /* Dependencies (A-Z) */
 var _ = require('lodash-node');
 var browserSync = require('browser-sync');
-var cached = require('gulp-cached');
 var del = require('del');
 var gulpif = require('gulp-if');
 var filter = require('gulp-filter');
 var fs = require('fs');
 var inlineCss = require('gulp-inline-css');
 var gulp = require('gulp');
-var karma = require('gulp-karma');
-var lazypipe = require('lazypipe');
 var less = require('gulp-less');
 var litmus = require('gulp-litmus');
-var minifyHtml = require('gulp-minify-html');
 var moduleUtility = require('./lib/module-utility');
-var newer = require('gulp-newer');
 var nunjucksMarkdown = require('nunjucks-markdown');
 var nunjucksRender = require('./lib/nunjucks-render');
 var path = require('path');
 var plumber = require('gulp-plumber');
-var prettify = require('gulp-prettify');
 var prism = require('./lib/prism');
 var rename = require('gulp-rename');
-var replace = require('gulp-replace');
 var runSequence = require('run-sequence');
 var util = require('gulp-util');
 var zip = require('gulp-zip');
@@ -142,21 +137,6 @@ function inlineCssTask(){
 		.on('error', util.log);
 }
 
-var formatHtml = lazypipe()
-	.pipe(function() {
-		// strip CDATA, comments & whitespace
-		return minifyHtml({
-			empty: true,
-			conditionals: true,
-			spare: true,
-			quotes: true
-		});
-	})
-	.pipe(function() {
-		return prettify({
-			indent_size: 2
-		});
-	});
 
 function getFileContents(path){
 	if(fs.existsSync(path)){
