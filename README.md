@@ -21,9 +21,9 @@ You can also test your layouts on different email clients with [Litmus](http://l
 
 	$ npm run develop
 
-**Test with Litmus**
+**Test your templates**
 
-	$ npm run test
+	$ npm test
 
 **Deploy and pack**
 
@@ -33,7 +33,7 @@ You can also test your layouts on different email clients with [Litmus](http://l
 
 * [Managing Modules](docs/managing-modules.md)
 * [Templating](docs/templating.md)
-* [Testing with Litmus](docs/testing-with-litmus.md)
+* [Testing](docs/testing-your-templates.md)
 * [Usefull tips](docs/tips.md)
 
 
