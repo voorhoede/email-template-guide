@@ -13,7 +13,8 @@ var paths = {
 paths.assetFiles = [
 		paths.src + 'assets/**/*.*',
 		paths.srcComponents + '*/assets/**/*.*',
-		paths.srcViews + '*/assets/**/*.*'
+		paths.srcViews + '*/assets/**/*.*',
+		paths.templates
 ];
 // source files are all files directly in module sub directories and core files,
 // excluding abstract files/dirs starting with '_'.
