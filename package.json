@@ -7,7 +7,7 @@
   "scripts": {
     "build": "./node_modules/.bin/gulp build_guide && ./node_modules/.bin/gulp zip_dist",
     "develop": "./node_modules/.bin/gulp watch",
-    "test": "./node_modules/.bin/gulp litmus",
+    "test": "./node_modules/.bin/gulp email_test",
     "add-module": "./node_modules/.bin/gulp create_module",
     "remove-module": "./node_modules/.bin/gulp remove_module"
   },

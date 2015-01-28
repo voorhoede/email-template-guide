@@ -40,7 +40,6 @@ gulp.task('clean_dist', function (cb) { del([paths.dist], cb); });
 gulp.task('create_module', createModule);
 gulp.task('edit_module', editModule);
 gulp.task('email_test', sendEmailTest);
-gulp.task('litmus', runLitmusTests);
 gulp.task('inline_css', inlineCssTask);
 gulp.task('remove_module', removeModule);
 gulp.task('serve', serveTask);
@@ -199,12 +198,6 @@ function reloadBrowser(options){
 
 function removeModule() {
 	return moduleUtility.remove();
-}
-
-function runLitmusTests(){
-	return gulp.src('dist/views/**/*.html')
-		.pipe(litmus(config.litmusConfig))
-		.pipe(gulp.dest('dist/email'));
 }
 
 function sendEmailTest(){

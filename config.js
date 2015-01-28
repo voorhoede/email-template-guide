@@ -63,8 +63,17 @@ for(apps in litmusSelectedApplications){
 var litmusConfig = litmusUserCredentials;
 litmusConfig.applications = applications;
 
+var emailSMTPCredentials = {
+	service: 'Gmail',
+	auth: {
+		user: 'email.template.guide@gmail.com',
+		pass: ''
+	}
+};
+
 
 module.exports = {
 	paths: paths,
-	litmusConfig : litmusConfig
+	litmusConfig : litmusConfig,
+	emailSMTPCredentials : emailSMTPCredentials
 };
