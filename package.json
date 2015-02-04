@@ -1,9 +1,8 @@
 {
   "name": "email-template-guide",
-  "version": "0.0.0",
+  "version": "1.0.0",
   "description": "Manage, build and compile your nightmarish email newsletter templates.",
   "main": "source/index.js",
-  "private": "yes",
   "scripts": {
     "build": "./node_modules/.bin/gulp build_guide && ./node_modules/.bin/gulp zip_dist",
     "develop": "./node_modules/.bin/gulp watch",
