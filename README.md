@@ -29,7 +29,7 @@ You can also test your layouts on different email clients with [Litmus](http://l
 
 	$ npm run build
 
-##Documentation
+## Documentation
 
 * [Managing Modules](docs/managing-modules.md)
 * [Templating](docs/templating.md)
@@ -37,12 +37,12 @@ You can also test your layouts on different email clients with [Litmus](http://l
 * [Usefull tips](docs/tips.md)
 
 
-##Todo && Issues
+## Todo && Issues
 
 * [TODO list](docs/todo.md)
 * [Issues](https://github.com/voorhoede/email-template-guide/issues)
 
-##Contributors
+## Contributors
 
 * [João Carmona](https://github.com/jpcarmona) - joao@voorhoede.nl
 * [Celine Kurpershoek](https://github.com/celinekurpershoek) - celine@voorhoede.nl
