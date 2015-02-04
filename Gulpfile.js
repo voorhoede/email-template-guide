@@ -124,7 +124,7 @@ function editModule() {
 }
 
 function inlineCssTask(){
-	return gulp.src('dist/views/**/*.html')
+	return gulp.src('dist/views/!(_**)/*.html')
 		.pipe(inlineCss({
 			applyStyleTags: true,
 			applyLinkTags: true,
