@@ -65,7 +65,8 @@ function buildHtmlTask() {
 }
 
 function buildModuleInfoTask() {
-	var marked = require('marked');
+	var MarkdownIt = require('markdown-it');
+	var md = new MarkdownIt();
 	['Components', 'Views'].forEach(function(moduleType){
 		listDirectories(paths['src' + moduleType])
 			.filter(function(name){ return (name.substr(0,1) !== '_'); })
@@ -74,7 +75,7 @@ function buildModuleInfoTask() {
 				var distBasename = paths['dist' + moduleType] + name + '/' + name;
 				var moduleInfo = {
 					name: name,
-					readme  : marked(getFileContents(paths['src' + moduleType]  + name + '/README.md')),
+					readme  : md.render(getFileContents(paths['src' + moduleType]  + name + '/README.md')),
 					html    : highlightCode(getFileContents(distBasename + '.html'), 'markup'),
 					css    : highlightCode(getFileContents(srcBasename + '.less'), 'css')
 				};
