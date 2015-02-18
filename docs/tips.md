@@ -8,3 +8,4 @@ Some links to make your newsletter building less painfull.
 * [Best practices listed by asset](http://www.pardot.com/faqs/emails/email-template-best-practices)
 * [Litmus Best practices infographic](https://litmus.com/blog/html-email-coding-101-infographic/email-coding-101)
 * [Email Blueprints by Mailchimp](https://github.com/mailchimp/Email-Blueprints)
+* [Sending Email, for Web Designers and Developers](http://www.leemunroe.com/sending-email-designers-developers/)
