@@ -10,12 +10,14 @@ var paths = {
 	karmaConfig:'./test/karma.conf.js',
 	changelog:'CHANGELOG.md'
 };
+
 paths.assetFiles = [
 		paths.src + 'assets/**/*.*',
 		paths.srcComponents + '*/assets/**/*.*',
 		paths.srcViews + '*/assets/**/*.*',
 		paths.templates
 ];
+
 // source files are all files directly in module sub directories and core files,
 // excluding abstract files/dirs starting with '_'.
 paths.srcFiles = [
@@ -24,8 +26,9 @@ paths.srcFiles = [
 		paths.srcViews + '*/*',
 		'!' + paths.src + '*/_template/*'
 ];
+
 paths.htmlFiles = paths.srcFiles.map(function(path){ return path + '.html'; });
-paths.lessFiles = paths.srcFiles.map(function(path){ return path + '*/*.less'; });
+paths.scssFiles = paths.srcFiles.map(function(path){ return path + '*/*.scss'; });
 
 var litmusSelectedApplications = {
 		'ol2003' : true,
@@ -70,7 +73,6 @@ var emailSMTPCredentials = {
 		pass: ''
 	}
 };
-
 
 module.exports = {
 	paths: paths,

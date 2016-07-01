@@ -1,52 +1,57 @@
 'use strict';
 
-/* Dependencies (A-Z) */
-var _ = require('lodash-node');
-var browserSync = require('browser-sync');
-var del = require('del');
-var gulpif = require('gulp-if');
-var filter = require('gulp-filter');
-var fs = require('fs');
-var inlineCss = require('gulp-inline-css');
-var gulp = require('gulp');
-var less = require('gulp-less');
-var litmus = require('gulp-litmus');
-var moduleUtility = require('./lib/module-utility');
-var emailUtility = require('./lib/email-sender');
+// Core: gulp
+var gulp             = require('gulp');
+
+// Dependencies (A-Z)
+var _                = require('lodash');
+var browserSync      = require('browser-sync');
+var del              = require('del');
+var emailUtility     = require('./lib/email-sender');
+var filter           = require('gulp-filter');
+var fs               = require('fs');
+var gulpIf           = require('gulp-if');
+var inlineCss        = require('gulp-inline-css');
+var litmus           = require('gulp-litmus');
+var moduleUtility    = require('./lib/module-utility');
+var newer            = require('gulp-newer');
+var notify           = require('gulp-notify');
 var nunjucksMarkdown = require('nunjucks-markdown');
-var nunjucksRender = require('./lib/nunjucks-render');
-var path = require('path');
-var plumber = require('gulp-plumber');
-var prism = require('./lib/prism');
-var rename = require('gulp-rename');
-var runSequence = require('run-sequence');
-var util = require('gulp-util');
-var zip = require('gulp-zip');
+var nunjucksRender   = require('./lib/nunjucks-render');
+var path             = require('path');
+var plumber          = require('gulp-plumber');
+var prism            = require('./lib/prism');
+var rename           = require('gulp-rename');
+var replace          = require('gulp-replace');
+var runSequence      = require('run-sequence');
+var sass             = require('gulp-sass');
+var util             = require('gulp-util');
 
-/* Shared configuration (A-Z) */
-var config = require('./config.js');
-var paths = config.paths;
-var pkg = require('./package.json');
+// Shared configuration (A-Z)
+var config           = require('./config.js');
+var paths            = config.paths;
+var pkg              = require('./package.json');
+var isWatching       = false;
 
-/* Register default & custom tasks (A-Z) */
+// Register default & custom tasks (A-Z)
 gulp.task('default', ['build_guide']);
-gulp.task('build_clean', function(cb) { runSequence('clean_dist', 'build_less', 'build_html', cb); });
+gulp.task('build_clean', function(cb) { runSequence('clean_dist', 'build_scss', 'build_html', cb); });
 gulp.task('build_guide', function(cb) { runSequence('build_clean', 'build_previews', 'inline_css', 'build_module_info', cb); });
 gulp.task('build_html', buildHtmlTask);
-gulp.task('build_less', buildLessTask);
+gulp.task('build_scss', buildScssTask);
 gulp.task('build_module_info', buildModuleInfoTask);
 gulp.task('build_previews', buildPreviewsTask);
-gulp.task('clean_dist', function (cb) { del([paths.dist], cb); });
+gulp.task('clean_dist', cleanDistTask);
 gulp.task('create_module', createModule);
 gulp.task('edit_module', editModule);
 gulp.task('email_test', sendEmailTest);
 gulp.task('inline_css', inlineCssTask);
 gulp.task('remove_module', removeModule);
 gulp.task('serve', serveTask);
-gulp.task('watch', function(/*cb*/) { runSequence(['build_guide', 'serve'], watchTask); });
+gulp.task('watch', function () { runSequence('build_guide', 'serve', watchTask); });
 gulp.task('zip_dist', zipDistTask);
 
-/* Tasks and utils (A-Z) */
+// Tasks and utils (A-Z)
 
 function buildHtmlTask() {
 	configureNunjucks();
@@ -96,15 +101,23 @@ function buildPreviewsTask() {
 		.pipe(gulp.dest(paths.dist));
 }
 
-function buildLessTask() {
-	return srcFiles('less')
-		.pipe(plumber()) // prevent pipe break on less parsing
-		.pipe(less())
+function buildScssTask() {
+	return gulp.src(['./src/index.scss', './src/views/_guide-viewer/guide-viewer.scss'])
+		.pipe(plumber()) // prevent pipe break on scss parsing
+		.pipe(gulpIf(isWatching, plumber({
+			errorHandler: notify.onError(function (err) {
+				return err.message
+					.replace(/.*(\/.*\.scss)/, '.. $1')
+					.replace('\n', ': ');
+			})
+		})))
+		.pipe(sass({
+			outputStyle: 'compressed'
+		}))
 		.pipe(plumber.stop())
 		.pipe(rename(function(p){
 			if(p.dirname === '.'){ p.dirname = 'assets'; } // output root src files to assets dir
 		}))
-		.pipe(gulp.dest('src')) // write the css and source maps for inline css
 		//should filter the template files and generate for them the css in src.
 		.pipe(gulp.dest(paths.dist)) // write the css and source maps
 		.pipe(filter('**/*.css')); // filtering stream to only css files
@@ -116,15 +129,24 @@ function configureNunjucks() {
 	env.addFilter('match', require('./lib/nunjucks-filter-match'));
 	env.addFilter('prettyJson', require('./lib/nunjucks-filter-pretty-json'));
 }
+
 function createModule() {
 	return moduleUtility.create();
 }
+
 function editModule() {
 	return moduleUtility.edit();
 }
 
-function inlineCssTask(){
-	return gulp.src('dist/views/!(_**)/*.html')
+function removeModule() {
+	return moduleUtility.remove();
+}
+
+function inlineCssTask() {
+	return gulp.src([
+			paths.dist + '**/!(_**)/*.html',
+			'!dist/components/app-core-styles/*.*'
+		])
 		.pipe(inlineCss({
 			applyStyleTags: true,
 			applyLinkTags: true,
@@ -132,7 +154,7 @@ function inlineCssTask(){
 			removeLinkTags: true,
 			preserveMediaQueries: true
 		}))
-		.pipe(gulp.dest('dist/views/'))
+		.pipe(gulp.dest('dist/'))
 		.pipe(reloadBrowser({ stream:true }))
 		.on('error', util.log);
 }
@@ -194,15 +216,15 @@ function parsePath(filepath) {
 
 function reloadBrowser(options){
 	// only reload browserSync if active, otherwise causes an error.
-	return gulpif(browserSync.active, browserSync.reload(options));
+	return gulpIf(browserSync.active, browserSync.reload(options));
 }
 
-function removeModule() {
-	return moduleUtility.remove();
-}
-
-function sendEmailTest(){
+function sendEmailTest() {
 	return emailUtility.sendEmail();
+}
+
+function cleanDistTask() {
+	del([paths.dist]);
 }
 
 function serveTask() {
@@ -220,8 +242,8 @@ function srcFiles(filetype) {
 }
 
 function watchTask () {
-	gulp.watch(paths.htmlFiles, ['build_less', 'build_html', 'build_previews']);
-	gulp.watch(paths.lessFiles, function() { runSequence('build_less', 'build_html', 'build_previews', 'inline_css'); });
+	gulp.watch(paths.htmlFiles, ['build_scss', 'build_html', 'build_previews']);
+	gulp.watch(paths.scssFiles, function() { runSequence('build_scss', 'build_html', 'build_previews', 'inline_css'); });
 }
 
 function zipDistTask () {

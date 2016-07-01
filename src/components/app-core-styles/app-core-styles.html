@@ -1,19 +1,19 @@
 <!-- app-core-style component -->
 {% set colors = {
-    "@brand-default":   "#000000",
-    "@brand-highlight":	"#428bca",
-    "@brand-success":	"#5cb85c",
-    "@brand-info":		"#5bc0de",
-    "@brand-warning":	"#f0ad4e",
-    "@brand-danger":	"#d9534f"
+"$brand-default":   "#000000",
+"$brand-highlight":	"#428bca",
+"$brand-success":	"#5cb85c",
+"$brand-info":		"#5bc0de",
+"$brand-warning":	"#f0ad4e",
+"$brand-danger":	"#d9534f"
 } %}
 <ul class="app-guide-swatches flat-list">
     {% for name, color in colors %}
-        <li title="color-primary">
-            <span class="app-guide-info">{{ color }}</span>
-            <span class="app-guide-swatch" style="background-color:{{ color }};"></span>
-            <span class="app-guide-info">{{ name }}</span>
-        </li>
+    <li title="color-primary">
+        <span class="app-guide-info">{{ color }}</span>
+        <span class="app-guide-swatch" style="background-color:{{ color }};"></span>
+        <span class="app-guide-info">{{ name }}</span>
+    </li>
     {% endfor %}
 </ul>
 
