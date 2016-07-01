@@ -1,9 +1,13 @@
 # vendor packages
 dist
 node_modules
-src/vendor
 npm-debug.log
 
-# project meta
+# Project meta
 .idea
+*.iml
+*.sublime-*
 src/**/*.css
+
+# OS X meta
+.DS_Store

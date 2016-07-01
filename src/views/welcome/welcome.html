@@ -2,19 +2,10 @@
 
 {% block title %}welcome | {{ super() }}{% endblock %}
 
-{% block styles %}
-{{ super() }}
-<style>{% include "views/welcome/welcome.css" %}</style>
-{% endblock %}
-
 {% block content %}
-    <!-- welcome view -->
+<!-- welcome view -->
 <section class="welcome-view">
     <section class="intro-header">
-        <div class="intro-header-credits">
-            <a href="http://www.voorhoede.nl">De Voorhoede</a>
-        </div>
-        <hr />
         <div class="intro-header-content">
             <h1>Email Template Guide</h1>
             <p>Let's make email development faster.</p>
@@ -71,6 +62,5 @@
     </section>
 
 </section>
-
-    <!-- /welcome view -->
+<!-- /welcome view -->
 {% endblock %}
