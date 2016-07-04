@@ -1,0 +1,41 @@
+{% macro demoContent() %}
+<!-- demo-content component -->
+<table class="demo-content" border="0" cellpadding="0" cellspacing="0" width="100%" height="100%">
+    <tr>
+        <td valign="top" align="left">
+            <h1>Etiam non consectetur sem</h1>
+        </td>
+    </tr>
+    <tr>
+        <td valign="top" align="left">
+            <p>Phasellus luctus eros et fringilla consequat. Aenean fermentum eleifend arcu, nec feugiat neque gravida eget. Sed eget interdum justo, nec laoreet turpis. Suspendisse efficitur lectus id vulputate consectetur.<br />Praesent sodales consequat aliquet. Integer in risus facilisis, aliquet lorem et, sagittis massa.</p>
+        </td>
+    </tr>
+    <tr>
+        <td valign="top" align="left">
+            <p>In hendrerit imperdiet varius. Duis mollis augue vitae tellus bibendum, vel facilisis lacus ullamcorper. Vivamus rhoncus, sem sed vehicula lacinia, lacus nibh commodo odio, elementum pretium neque libero vel ligula. Sed luctus, mauris et maximus hendrerit, diam urna viverra tortor, nec vulputate felis enim nec nunc.</p>
+        </td>
+    </tr>
+    <tr>
+        <td valign="top" align="left">
+            <p>Fusce posuere a enim vitae pharetra,</p>
+        </td>
+    </tr>
+    <tr>
+        <td valign="top" align="left">
+            <p><em>Vestibulum auctor</em></p>
+        </td>
+    </tr>
+    <tr>
+        <td class="demo-content-bottom-spacing" width="100%"></td> <!-- Cross-client spacing trick -->
+    </tr>
+</table>
+<!-- /demo-content component -->
+{% endmacro %}
+
+{# examples #}
+<div class="app-guide-example">
+    <span data-guide-title>Example: Demo content</span>
+    {{ demoContent() }}
+</div>
+{# /examples #}

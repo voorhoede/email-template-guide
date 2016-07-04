@@ -31,7 +31,7 @@ The Email Template Guide comes packed with a set of [variables](http://mozilla.g
 	```html
 		<img src="{{ paths.assets }}components/app-logo/demo-logo.svg" alt="demo">
 	```
-			
+
 * **`pkg`** contains the JSON of [`package.json`](../package.json).
 
 
@@ -40,7 +40,7 @@ The Email Template Guide comes packed with a set of [variables](http://mozilla.g
 A template can [extend](http://mozilla.github.io/nunjucks/templating.html#extends) another template, using `{% extends "path/to/file.ext" %}`. The front-end guide mostly uses extends for views. In the front-end guide all paths are relative to `src/`. For example all views generated using `npm run add-module` extend the base-view: 
 
 	{% extends "views/_base-view/base-view.html" %}
-	
+
 
 ## Template partials
 

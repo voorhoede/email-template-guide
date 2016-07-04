@@ -1,0 +1,23 @@
+// Colors
+$brand-default:		#000000;
+$brand-highlight:	#428BCA;
+$brand-success:		#5CB85C;
+$brand-info:		#5bC0DE;
+$brand-warning:		#F0AD4E;
+$brand-danger:		#D9534F;
+
+// Fonts
+$line-height-base: 24px;
+$font-weight-base: 400;
+$font-weight-semibold: 600;
+
+// Breakpoints
+$bp-small: 480px;
+$bp-medium: 635px;
+$bp-large: 750px;
+
+$path-to-assets: ''; // index.css is in the dist/assets/ so the relative path will just be an empty string
+
+$default-radius: 2px;
+
+$max-width: 600px; // Width of e-mail content.

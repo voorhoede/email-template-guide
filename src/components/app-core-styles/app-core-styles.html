@@ -1,0 +1,202 @@
+<!-- app-core-style component -->
+{% set colors = {
+"$brand-default":   "#000000",
+"$brand-highlight":	"#428bca",
+"$brand-success":	"#5cb85c",
+"$brand-info":		"#5bc0de",
+"$brand-warning":	"#f0ad4e",
+"$brand-danger":	"#d9534f"
+} %}
+<section class="app-guide-section container" id="table-of-contents">
+    <h2>Table of Contents</h2>
+    <ul class="table-of-contents">
+        <li><a href="#colors">Colors</a></li>
+        <li><a href="#typography">Typography</a></li>
+        <li><a href="#lists">Lists</a></li>
+    </ul>
+</section>
+
+<section class="app-guide-section container clearfix" id="colors">
+    <h2>Colors</h2>
+
+    <ul class="app-guide-swatches flat-list">
+        {% for name, color in colors %}
+        <li title="color-primary">
+            <span class="app-guide-info">{{ color }}</span>
+            <span class="app-guide-swatch" style="background-color:{{ color }};"></span>
+            <span class="app-guide-info">{{ name }}</span>
+        </li>
+        {% endfor %}
+    </ul>
+</section>
+
+<section class="app-guide-section container app-guide-section-typography" id="typography">
+    <h2>Typography</h2>
+    <div>
+        <h1>Heading 1 style</h1>
+        <h2>Heading 2 style</h2>
+        <h3>Heading 3 style</h3>
+        <h4>Heading 4 style</h4>
+
+        <b>B element - For a heavier font-weight.</b>
+        <strong>Strong or B element - For emphasizing a snippet of text with a heavier font-weight.</strong>
+        <em>em - for emphasizing a snippet of text with italics.</em>
+
+        <p>
+            Sed ullamcorper, felis eu aliquet fermentum, est eros aliquam sapien, non tristique elit nibh vitae nulla. Maecenas augue felis, elementum porttitor pulvinar vitae, molestie sed ante. Nunc felis elit, scelerisque eget sagittis ac, convallis in mi. Integer in tellus in erat porttitor facilisis. Interdum et malesuada fames ac ante ipsum primis in faucibus. Maecenas at pellentesque mauris, in scelerisque nulla. Proin efficitur neque ac lectus viverra, et rutrum neque facilisis. Quisque mattis nisi in quam tempus porttitor. Mauris quis velit nisi. Nulla ac metus ligula. Etiam sit amet sagittis elit. Etiam sit amet tristique augue, in consequat ante.
+        </p>
+
+    </div>
+</section>
+
+<section class="app-guide-section container" id="lists">
+    <h2>Lists</h2>
+    <div class="app-guide-sub-section">
+
+        <div class="app-guide-sub-section">
+            <h3 class="">Default list</h3>
+            <ul>
+                <li>Alpha</li>
+                <li>Beta</li>
+                <li>Charlie</li>
+                <li>Delta</li>
+            </ul>
+        </div>
+
+        <div class="app-guide-sub-section">
+            <h3 class="">Flat list</h3>
+            <ul class="flat-list">
+                <li>Alpha</li>
+                <li>Beta</li>
+                <li>Charlie</li>
+                <li>Delta</li>
+            </ul>
+        </div>
+
+        <div class="app-guide-sub-section">
+            <h3 class="">Inline list</h3>
+            <ul class="list-inline">
+                <li>Alpha</li>
+                <li>Beta</li>
+                <li>Charlie</li>
+                <li>Delta</li>
+            </ul>
+        </div>
+
+        <div class="app-guide-sub-section">
+            <h3 class="h4">Definition List</h3>
+            <dl>
+                <dt>
+                    <dfn>Alpha</dfn>
+                </dt>
+                <dd>Beta</dd>
+            </dl>
+            <dl>
+                <dt>
+                    <dfn>Charlie</dfn>
+                </dt>
+                <dd>Delta</dd>
+            </dl>
+        </div>
+
+    </div>
+</section>
+
+<style type="text/css">
+    h1 {
+        margin-top: 30px;
+        margin-bottom: 36px;
+        font-size: 36px;
+        text-align: left;
+        line-height: 44px;
+    }
+
+    .app-guide-section {
+        margin: 30px auto 30px auto;
+        background: white;
+        box-shadow: 1px 3px 5px 0 rgba(51, 51, 51, 0.1);
+        padding: 20px 30px;
+        box-sizing: border-box;
+        text-align: left;
+        width: 984px;
+    }
+
+    .app-guide-sub-section { margin: 25px 0; }
+    .app-guide-section h2 { margin-top: 0; }
+
+    .app-guide-section:after {
+        content: "";
+        display: table;
+        clear: both;
+    }
+
+    .app-guide-section-typography span,
+    .app-guide-section-typography strong,
+    .app-guide-section-typography b {
+        display: block;
+        margin-top: 20px;
+    }
+
+    .app-guide-swatches {
+        display: block;
+        width: 100%;
+        float: left;
+    }
+
+    .app-guide-swatches li {
+        float: left;
+        width: 215px;
+        margin: 15px 8px 15px 8px;
+        border-width: 1px;
+        border-style: solid;
+        border-color: #666666;
+    }
+
+    .app-guide-swatch {
+        display: block;
+        border-width: 16px;
+        border-style: solid;
+        border-color: #e3e3e3;
+        margin: 0 auto;
+        width: 100px;
+        height: 100px;
+    }
+
+
+    .app-guide-icon {
+        border-color: transparent;
+    }
+
+    .app-guide-info {
+        display: block;
+        text-align: center;
+        margin-top: 0.5em;
+        margin-bottom: 0.5em;
+        font-size: 0.9em;
+        white-space: nowrap;
+    }
+
+    .scroll-top {
+        position: fixed;
+        bottom: 30px;
+        right: 50px;
+        cursor: pointer;
+        color: $blue-light;
+    }
+
+    .scroll-top span {
+        width: 2rem;
+        height: 2rem;
+    }
+
+    .table-of-contents { padding: 0; }
+
+    .table-of-contents li {
+        list-stye: none;
+        display: inline-block;
+        padding: 0 10px;
+        margin: 0 5px 0 0;
+        background-color: #E7F1F5;
+    }
+</style>
+<!-- /app-core-style component -->

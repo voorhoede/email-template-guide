@@ -1,20 +1,36 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
-	<head>
-		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-		<title>{% block title %}{{ content.title | default("Email-guide template") }}{% endblock %}</title>
-	
-		{% block styles %}
-			<link rel="stylesheet" href="{{ paths.assets }}index.css">
-    	{% endblock %}
-	</head>
-<body>
-	{% block main %}
-	<main>
-	    {% block content %}
-	    {% endblock %}
-	</main>
-	{% endblock %}
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>{% block title %}{{ content.title | default("E-mail Template Guide") }}{% endblock
+        %}</title>
+
+    {% block styles %}
+    <link rel="stylesheet" href="{{ paths.assets }}index.css">
+    {% endblock %}
+
+    <!-- inject:css -->
+
+</head>
+<body leftmargin="0" marginwidth="0" topmargin="0" marginheight="0" offset="0" bgcolor="#F5F5F5" yahoo="fix">
+<center>
+    <table class="email-body" align="center" border="0" cellpadding="0" cellspacing="0" height="100%" width="100%" bgcolor="#F5F5F5">
+        <tr>
+            <td class="email-body-cell" align="center" valign="top">
+                <table border="0" cellpadding="0" cellspacing="0" class="template-container">
+                    <tr>
+                        <td align="center" valign="top">
+                            {%- block main -%}
+                            {% block content %}
+                            {% endblock %}
+                            {%- endblock -%}
+                        </td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+    </table>
+</center>
 </body>
 </html>

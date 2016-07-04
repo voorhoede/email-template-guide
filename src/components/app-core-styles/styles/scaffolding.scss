@@ -1,0 +1,33 @@
+
+html,
+body { min-width: 320px; }
+
+// Default behaviour for containers
+// --------------------------------
+.container,
+%container {
+    position: relative;
+    max-width: 100%;
+    margin-right: auto;
+    margin-left: auto;
+    padding: 0 16px;
+
+    &:after {
+        display: block;
+        clear: both;
+        content: ' ';
+    }
+
+    @media screen and (min-width: $bp-medium) {
+        max-width: 100%;
+        margin-right: auto;
+        margin-left: auto;
+    }
+
+    @media screen and (min-width: $bp-large) {
+        max-width: 984px;
+        margin-right: auto;
+        margin-left: auto;
+        padding: 0;
+    }
+}

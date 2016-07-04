@@ -1,0 +1,32 @@
+// Main Styles
+// The order of components(non core style) and views should not matter.
+// If it does matter, something is wrong.
+
+// Vendor
+@import "components/app-core-styles/styles/_normalize";
+
+// Mixins
+@import "components/app-core-styles/styles/mixins/clearfix";
+@import "components/app-core-styles/styles/mixins/word-wrap";
+
+// Variables
+@import "components/app-core-styles/styles/variables";
+
+// Core styles
+@import "components/app-core-styles/styles/accessibility";
+@import "components/app-core-styles/styles/buttons";
+@import "components/app-core-styles/styles/icons";
+@import "components/app-core-styles/styles/lists";
+@import "components/app-core-styles/styles/scaffolding";
+@import "components/app-core-styles/styles/typography";
+
+// Components (A-Z)
+@import "components/app-header/app-header";
+@import "components/app-footer/app-footer";
+@import "components/app-pre-header/app-pre-header";
+@import "components/demo-content/demo-content";
+
+// Views (A-Z)
+@import "views/_base-view/base-view";
+@import "views/demo-email/demo-email";
+@import "views/welcome/welcome";

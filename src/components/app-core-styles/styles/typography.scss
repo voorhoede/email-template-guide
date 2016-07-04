@@ -1,0 +1,93 @@
+body {
+    color: #333333;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 16px;
+    line-height: 24px;
+    text-rendering: optimizeLegibility;
+
+    // <td>'s with an <img> inside have weird width-behavior, so setting `.no-font`
+    // on the wrapping <td> of an <img> excludes them and fixes this issue.
+    td, th {
+        &:not(.no-font) {
+            color: #333333;
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: 16px;
+            font-weight: normal;
+            line-height: 24px;
+        }
+    }
+}
+
+h1, h2, h3, h4,
+.h1, .h2, .h3, .h4 {
+    margin: 0;
+    font-weight: 600;
+}
+
+h1, .h1 {
+    margin-top: 1.75rem;
+    margin-bottom: 1.75rem;
+    font-size: 1.5rem;
+    line-height: 2rem;
+
+    @media screen and (min-width: $bp-medium) {
+        font-size: 1.75rem !important;
+        line-height: 2.25rem !important;
+    }
+
+    @media screen and (min-width: $bp-large) {
+        margin-top: 2.25rem !important;
+        margin-bottom: 2.25rem !important;
+        font-size: 2.25rem !important;
+        line-height: 2.75rem !important;
+    }
+}
+
+h2, .h2 {
+    margin-top: 0.75rem;
+    margin-bottom: 1.75rem;
+    font-size: 1.25rem;
+    line-height: 1.75rem;
+
+    @media screen and (min-width: $bp-large) {
+        margin-top: 1.75rem !important;
+        margin-bottom: 1.25rem !important;
+        font-size: 1.75rem !important;
+        line-height: 2.75rem !important;
+    }
+}
+
+h3, .h3 {
+    margin-top: 0.75rem;
+    margin-bottom: 0.5rem;
+    font-size: 1rem;
+
+    @media screen and (min-width: $bp-large) {
+        margin-top: 1.25rem !important;
+        margin-bottom: 1.75rem !important;
+        font-size: 1.5rem !important;
+        line-height: 2rem !important;
+    }
+}
+
+h4, .h4 {
+    font-size: 1rem;
+
+    @media screen and (min-width: $bp-large) {
+        margin-top: 0.75rem !important;
+        margin-bottom: 1rem !important;
+        font-size: 1.25rem !important;
+        line-height: 1.75rem !important;
+    }
+}
+
+p {
+    margin-bottom: 1.75rem;
+    font-size: 1rem;
+    line-height: 1.5rem;
+}
+
+small, .small {
+    font-size: 0.75rem;
+    line-height: 1.125rem;
+}

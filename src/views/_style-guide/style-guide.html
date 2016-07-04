@@ -1,0 +1,12 @@
+{% extends "views/_base-view/base-view.html" %}
+
+{% block title %}style-guide | {{ super() }}{% endblock %}
+
+{% block content %}
+<!-- style-guide view -->
+<div class="container">
+    <h1>Style Guide</h1>
+    {% include "components/app-core-styles/app-core-styles.html" %}
+</div>
+<!-- /style-guide view -->
+{% endblock %}

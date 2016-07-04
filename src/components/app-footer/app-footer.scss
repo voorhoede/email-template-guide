@@ -1,0 +1,43 @@
+
+.email-footer {
+    min-width: 100%;
+    max-width: $max-width;
+    text-align: center;
+
+    > tr {
+        border-top: 2px solid #00AAE6;
+        background-color: #F5F5F5;
+    }
+
+    .email-footer-settings {
+        display: inline-block;
+        text-align: left;
+
+        tr {
+            display: inline-block;
+            width: 100%;
+        }
+
+        td { color: #666666; }
+
+        td, a, a > span, br {
+            font-size: 12px;
+            line-height: 16px;
+        }
+    }
+
+    .email-footer-bottom-spacing {
+        @media screen and (max-width: 635px) {
+            height: 0 !important;
+            float: left;
+        }
+
+        td {
+            height: 40px;
+
+            @media screen and (max-width: 635px) {
+                height: 12px !important;
+            }
+        }
+    }
+}

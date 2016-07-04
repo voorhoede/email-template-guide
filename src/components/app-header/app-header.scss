@@ -1,0 +1,25 @@
+
+.email-header {
+    min-width: 100%;
+    max-width: $max-width;
+    height: 54px;
+    max-height: 54px;
+    border-bottom: 2px solid #999999;
+    background-color: #00AAE6;
+    text-align: left;
+
+    img {
+        display: block;
+        width: 100px;
+        max-width: 100px;
+        height: 54px;
+        max-height: 54px;
+    }
+
+    a {
+        display: block;
+        width: 100px;
+    }
+
+    .email-header-content { vertical-align: middle; }
+}

@@ -1,0 +1,108 @@
+html {
+    min-width: 100%; // Fixes iPads not displaying the email full-width
+}
+
+body, table, td, p, a, li, blockquote {
+    -webkit-text-size-adjust: 100%; // Prevent WebKit and Windows mobile changing default text sizes
+    -ms-text-size-adjust: 100%;
+
+    @media screen and (max-width: $bp-medium) {
+        -webkit-text-size-adjust: none !important;
+    }
+}
+
+body {
+    @media screen and (max-width: $bp-medium) {
+        width: 100% !important;
+        min-width: 100% !important; // Prevent iOS Mail from adding padding to the body
+    }
+}
+
+table, td {
+    mso-table-lspace: 0pt; // Remove spacing between tables in Outlook 2007 and up
+    mso-table-rspace: 0pt;
+}
+
+div {
+    margin: 0;
+}
+
+center {
+    padding: 0;
+    background-color: #F5F5F5;
+}
+
+img {
+    display: block; // Remove extra pixels in Hotmail
+    width: auto !important; // To prevent images breaking on iPhone resolutions and higher.
+    max-width: 100% !important;
+    height: auto !important;
+    -ms-interpolation-mode: bicubic; // Allow smoother rendering of resized image in Internet Explorer
+}
+
+p {
+    margin: 0;
+    padding: 0;
+}
+
+// prevent text links might get reformatted by Yahoo! shortcuts.
+span.yshortcuts,
+a span { color: currentColor; }
+
+// prevent text links might get reformatted by Yahoo! shortcuts.
+span.yshortcuts:hover,
+span.yshortcuts:active,
+span.yshortcuts:focus {
+    border: none;
+    background-color: none;
+    color: currentColor;
+    text-decoration: none;
+}
+
+body, .email-body, .email-body-cell {
+    width: 100% !important;
+    height: 100% !important;
+    margin: 0;
+    padding: 0;
+}
+
+.template-container {
+    width: $max-width;
+
+    @media screen and (max-width: $bp-medium) {
+        width: 100% !important;
+        max-width: 600px !important;
+    }
+}
+
+.email-body-cell {
+    @media screen and (max-width: $bp-medium) {
+        padding: 10px !important;
+    }
+}
+
+.with-padding,
+%with-padding {
+    padding: 0 24px;
+
+    @media screen and (max-width: $bp-small) {
+        padding-right: 10px !important;
+        padding-left: 10px !important;
+    }
+}
+
+.app-guide-example {
+    margin-bottom: 0;
+    padding: 0 0 16px;
+    background-color: #FFFFFF;
+
+    span[data-guide-title] {
+        display: block;
+        width: calc(100% - 10px);
+        margin-bottom: 16px;
+        padding: 10px;
+        clear: both;
+        background: #EDEDED;
+        text-align: left;
+    }
+}

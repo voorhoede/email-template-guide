@@ -1,0 +1,34 @@
+
+.email-pre-header {
+    min-width: 100%;
+    max-width: $max-width;
+
+    tr { width: 100%; }
+
+    .email-pre-header-top-spacing {
+        height: 50px;
+
+        @media screen and (max-width: 635px) {
+            height: 12px !important;
+        }
+    }
+
+    .email-pre-header-date p,
+    .email-pre-header-link {
+        color: #666666;
+        font-size: 12px;
+        line-height: 16px;
+    }
+
+    .email-pre-header-date p { margin-bottom: 0; }
+
+    .email-pre-header-link {
+        text-align: right;
+
+        a {
+            font-size: 12px;
+            line-height: 16px;
+            text-decoration: underline;
+        }
+    }
+}
