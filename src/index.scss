@@ -27,5 +27,6 @@
 @import "components/demo-content/demo-content";
 
 // Views (A-Z)
-@import "views/_base-view/base-view.scss";
-@import "views/welcome/welcome.scss";
+@import "views/_base-view/base-view";
+@import "views/demo-email/demo-email";
+@import "views/welcome/welcome";
