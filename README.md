@@ -17,6 +17,19 @@ You can also test your layouts on different email clients with [Litmus](http://l
 
 	$ npm install
 
+Now create a `credentials.json` file in the root directory with the following content:
+
+    {
+        "AccountUsername" : "<YOUR_LITMUS_USERNAME>",
+        "AccountPassword" : "<YOUR_LITMUS_PASSWORD>"
+    }
+
+If you have a Litmus account, fill in your credentials. If you don't have a Litmus account, please
+create one first.
+
+NOTE: If you leave the fields empty, you will still be able run the project, but you will not enable to
+test your templates with Litmus.
+
 **Build and watch**
 
 	$ npm run develop
@@ -35,7 +48,6 @@ You can also test your layouts on different email clients with [Litmus](http://l
 * [Templating](docs/templating.md)
 * [Testing](docs/testing-your-templates.md)
 * [Usefull tips](docs/tips.md)
-
 
 ## Todo && Issues
 

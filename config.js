@@ -1,5 +1,8 @@
 'use strict';
 
+// Local Litmus user credentials.
+var credentials = require('./credentials.json');
+
 /**
  * Paths configuration.
  */
@@ -68,8 +71,8 @@ var browserDefaultConfig = {
  * Litmus settings.
  */
 var litmusConfig = {
-    username: 'litmus_username',
-    password: 'litmus_password',
+    username: credentials.AccountUsername,
+    password: credentials.AccountPassword,
     url: 'https://yourcompany.litmus.com',
     applications: [
         'ol2000',
