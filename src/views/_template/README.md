@@ -1,3 +1,3 @@
-# MODULE_NAME view
+# MODULE_NAME e-mail template
 
-<!-- replace with description of MODULE_NAME view -->
+<!-- replace with description of MODULE_NAME e-mail template -->
