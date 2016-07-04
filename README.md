@@ -23,7 +23,7 @@ You can also test your layouts on different email clients with [Litmus](http://l
 
 **Test your templates**
 
-	$ npm test
+	$ npm run test
 
 **Deploy and pack**
 
