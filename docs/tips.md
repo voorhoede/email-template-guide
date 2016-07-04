@@ -5,6 +5,8 @@ General tips:
 - Always use 6-digit hexadecimal color codes, some clients don't understand the 3-digit shorthand.
 - When using mediaqueries, make sure the properties inside have `!important` behind them, otherwise
 they will not overwrite the inlined styling.
+- Avoid using `em`, `rem` or any other 'exotic' unit. Always use `px` to avoid running into problems
+with older e-mail clients (and their old rendering engines).
 
 Some links to make your newsletter building less painfull:
 
