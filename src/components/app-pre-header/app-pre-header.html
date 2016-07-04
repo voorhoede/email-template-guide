@@ -1,0 +1,25 @@
+{% macro appPreHeader() %}
+<!-- app-pre-header component -->
+<table class="email-pre-header" border="0" cellpadding="0" cellspacing="0" width="100%" height="100%">
+    <tr align="left" valign="center">
+        <!-- Template top spacing -->
+        <td class="email-pre-header-top-spacing"></td>
+    </tr>
+    <tr align="left" valign="center">
+        <td class="email-pre-header-date" align="left" valign="top" height="30">
+           <p>Sunday, May 15th 2016</p>
+        </td>
+        <td class="email-pre-header-link" align="right" valign="top" height="30">
+            <a href="#" target="_blank"><span>View this in your browser</span></a>
+        </td>
+    </tr>
+</table>
+<!-- /app-pre-header component -->
+{% endmacro %}
+
+{# examples #}
+<div class="app-guide-example">
+    <span data-guide-title>Example: Demo pre-header</span>
+    {{ appPreHeader() }}
+</div>
+{# /examples #}

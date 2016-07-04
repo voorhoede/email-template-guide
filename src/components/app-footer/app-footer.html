@@ -1,0 +1,49 @@
+{% macro appFooter() %}
+<!-- app-footer component -->
+<table class="email-footer" border="0" cellpadding="0" cellspacing="0" width="100%" height="100%">
+    <tr>
+        <td valign="top" width="100%">
+            <table class="email-footer-settings" border="0" cellpadding="0" cellspacing="0" width="100%">
+                <tr>
+                    <td valign="top">
+                        <br />
+                        <a href="http://www.company.com/unsubscribe/"><span>Unsubscribe from this list</span></a> | <a href="http://www.company.com/settings/"><span>Update subscription preferences</span></a>
+                        <br />
+                        <br />
+                    </td>
+                </tr>
+                <tr>
+                    <td valign="top">
+                        This email was automatically sent to you from our website (<a href="mailto:no-reply@company.com"><span>no-reply@company.com</span></a>).<br />
+                        Replies sent to this email adress will not be read.
+                        <br />
+                        <br />
+                    </td>
+                </tr>
+                <tr>
+                    <td valign="top" style="line-height: 16px;">
+                        Do you have any questions? Go to <a href="http://www.company.com/help/"><span>http://www.company.com/help/</span></a> or send them to <a href="mailto:helpdesk@company.com"><span>helpdesk@company.com</span></a>
+                    </td>
+                </tr>
+                <tr>
+                    <td valign="bottom" align="left" height="35">
+                        <em>Copyright &copy; 2016 Company, All rights reserved.</em>
+                    </td>
+                </tr>
+                <tr class="email-footer-bottom-spacing">
+                    <!-- Template buttom spacing -->
+                    <td align="center" valign="center" height="40"></td>
+                </tr>
+            </table>
+        </td>
+    </tr>
+</table>
+<!-- /app-footer component -->
+{% endmacro %}
+
+{# examples #}
+<div class="app-guide-example">
+    <span data-guide-title>Example: Demo footer</span>
+    {{ appFooter() }}
+</div>
+{# /examples #}

@@ -1,0 +1,9 @@
+
+.demo-content {
+    text-align: left;
+
+    tr,
+    td { @extend %with-padding; }
+
+    .demo-content-bottom-spacing { height: 12px; }
+}

@@ -21,7 +21,10 @@
 @import "components/app-core-styles/styles/typography";
 
 // Components (A-Z)
-
+@import "components/app-header/app-header";
+@import "components/app-footer/app-footer";
+@import "components/app-pre-header/app-pre-header";
+@import "components/demo-content/demo-content";
 
 // Views (A-Z)
 @import "views/_base-view/base-view.scss";
