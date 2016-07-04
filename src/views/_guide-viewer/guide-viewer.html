@@ -133,6 +133,12 @@
             {% for item in moduleIndex.views | match('^[a-z]', 'name') %}
                 {{ item | prettyJson }},
             {% endfor %}
+            {
+                id: 'app/style-guide',
+                    name: 'style-guide',
+                path: 'views/_style-guide/style-guide.html',
+                type: 'app'
+            }
         ]);
 </script>
 <script>{% include "views/_guide-viewer/guide-viewer.js" %}</script>
