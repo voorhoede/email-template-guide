@@ -56,6 +56,6 @@ test your templates with Litmus.
 
 ## Contributors
 
-* [João Carmona](https://github.com/jpcarmona) - joao@voorhoede.nl
+* [João Carmona](https://github.com/jpsc) - joao@voorhoede.nl
 * [Vincent van Dijck](https://github.com/vvandijck) - vincent@voorhoede.nl
 * [Celine Kurpershoek](https://github.com/celinekurpershoek) - celine@voorhoede.nl
