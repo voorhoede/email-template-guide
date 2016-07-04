@@ -45,4 +45,5 @@ You can also test your layouts on different email clients with [Litmus](http://l
 ## Contributors
 
 * [João Carmona](https://github.com/jpcarmona) - joao@voorhoede.nl
+* [Vincent van Dijck](https://github.com/vvandijck) - vincent@voorhoede.nl
 * [Celine Kurpershoek](https://github.com/celinekurpershoek) - celine@voorhoede.nl
