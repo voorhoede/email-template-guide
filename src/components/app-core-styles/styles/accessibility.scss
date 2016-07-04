@@ -9,14 +9,14 @@
     padding: 0;
     position: absolute;
     width: 1px;
-}
 
-.a11y-kb-only:active,
-.a11y-kb-only:focus {
-    clip: auto;
-    height: auto;
-    margin: 0;
-    overflow: visible;
-    position: static;
-    width: auto;
+    &:active,
+    &:focus {
+        clip: auto;
+        height: auto;
+        margin: 0;
+        overflow: visible;
+        position: static;
+        width: auto;
+    }
 }

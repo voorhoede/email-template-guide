@@ -2,6 +2,9 @@
 // The order of components(non core style) and views should not matter.
 // If it does matter, something is wrong.
 
+// Vendor
+@import "components/app-core-styles/styles/_normalize";
+
 // Mixins
 @import "components/app-core-styles/styles/mixins/clearfix";
 @import "components/app-core-styles/styles/mixins/word-wrap";
@@ -15,6 +18,7 @@
 @import "components/app-core-styles/styles/icons";
 @import "components/app-core-styles/styles/lists";
 @import "components/app-core-styles/styles/scaffolding";
+@import "components/app-core-styles/styles/typography";
 
 // Components (A-Z)
 
