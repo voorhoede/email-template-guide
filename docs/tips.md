@@ -1,6 +1,12 @@
 #Tips
 
-Some links to make your newsletter building less painfull.
+General tips:
+
+- Always use 6-digit hexadecimal color codes, some clients don't understand the 3-digit shorthand.
+- When using mediaqueries, make sure the properties inside have `!important` behind them, otherwise
+they will not overwrite the inlined styling.
+
+Some links to make your newsletter building less painfull:
 
 * [Modular email design](http://www.smashingmagazine.com/2014/08/04/improve-your-email-workflow-with-modular-design/)
 * [Responsive email patters](http://responsiveemailpatterns.com/)
