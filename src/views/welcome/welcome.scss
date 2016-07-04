@@ -1,83 +1,44 @@
-/* welcome view */
-// add style rules for this view.
-/* /welcome view */
-body {
-    background: #ffffff;
-}
 
 .welcome-view {
-    font-family: 'open sans', helvetica, arial, sans-serif;
+    max-width: $max-width;
+    text-align: left;
 
-    .intro-header {
-        background: #58b2bd;
-
-        hr {
-            border: none;
-            height: 1px;
-            background-color: #6ac2cc;
-        }
+    h1, h2, h3 {
+        margin-bottom: 0;
+        color: #333333;
+        line-height: 1.6;
     }
 
-    .intro-header-credits {
-        margin: 0 auto;
-        width: 800px;
-        padding: 20px 0 15px;
+    h1 { font-size: 32px; }
 
-        a {
-            color: #fff;
-
-            &:hover {
-                color: #00373d;
-            }
-        }
+    h2 {
+        font-size: 24px;
+        font-weight: bold;
     }
+
+    ul {
+        margin-top: 0.5rem;
+        margin-bottom: 2rem;
+    }
+
+    p + ol { margin-top: -16px; }
+
+    .intro-header { background: #58b2bd; }
 
     .intro-header-content {
-        padding: 100px 0;
         margin: 0 auto;
-        width: 800px;
+        padding: 50px 16px 60px;
+        color: #FFFFFF;
         text-align: center;
-        color: #fff;
-        font-size: 28px;
-        text-shadow: 0 1px 1px rgba(0,0,0,0.3);
+        text-shadow: 0 1px 1px rgba(0, 0, 0, 0.3);
 
-        h1 {
-            color: #fff;
-            font-size: 64px;
-
-        }
+        h1 { color: #FFFFFF; }
     }
-
 
     .main-content {
-        background: #ffffff;
         margin: 0 auto;
-        width: 800px;
-        padding: 20px 0;
-
-        font-size: 16px;
+        padding: 8px 16px;
+        background-color: #FFFFFF;
         line-height: 24px;
-    }
-
-
-
-    h1,
-    h2 {
-        color: #00373d;
-        font-family: arial, sans-serif;
-        font-weight: 400;
-        line-height: 1.6;
-        margin: 0;
-    }
-
-    a {
-        color: #58b2bd;
-        cursor: pointer;
-        background: 0 0;
-        text-decoration: none;
-
-        &:hover {
-            color: #0f4c53;
-        }
     }
 }
