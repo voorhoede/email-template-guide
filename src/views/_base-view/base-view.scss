@@ -6,13 +6,13 @@ body, table, td, p, a, li, blockquote {
     -webkit-text-size-adjust: 100%; // Prevent WebKit and Windows mobile changing default text sizes
     -ms-text-size-adjust: 100%;
 
-    @media screen and (max-width: 635px) {
+    @media screen and (max-width: $bp-medium) {
         -webkit-text-size-adjust: none !important;
     }
 }
 
 body {
-    @media screen and (max-width: 635px) {
+    @media screen and (max-width: $bp-medium) {
         width: 100% !important;
         min-width: 100% !important; // Prevent iOS Mail from adding padding to the body
     }
@@ -69,14 +69,14 @@ body, .email-body, .email-body-cell {
 .template-container {
     width: $max-width;
 
-    @media screen and (max-width: 635px) {
+    @media screen and (max-width: $bp-medium) {
         width: 100% !important;
         max-width: 600px !important;
     }
 }
 
 .email-body-cell {
-    @media screen and (max-width: 635px) {
+    @media screen and (max-width: $bp-medium) {
         padding: 10px !important;
     }
 }
@@ -85,7 +85,7 @@ body, .email-body, .email-body-cell {
 %with-padding {
     padding: 0 24px;
 
-    @media screen and (max-width: 480px) {
+    @media screen and (max-width: $bp-small) {
         padding-right: 10px !important;
         padding-left: 10px !important;
     }

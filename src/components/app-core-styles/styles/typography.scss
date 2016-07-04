@@ -31,15 +31,15 @@ h1, .h1 {
     line-height: 2rem;
 
     @media screen and (min-width: $bp-medium) {
-        font-size: 1.75rem;
-        line-height: 2.25rem;
+        font-size: 1.75rem !important;
+        line-height: 2.25rem !important;
     }
 
     @media screen and (min-width: $bp-large) {
-        margin-top: 2.25rem;
-        margin-bottom: 2.25rem;
-        font-size: 2.25rem;
-        line-height: 2.75rem;
+        margin-top: 2.25rem !important;
+        margin-bottom: 2.25rem !important;
+        font-size: 2.25rem !important;
+        line-height: 2.75rem !important;
     }
 }
 
@@ -50,10 +50,10 @@ h2, .h2 {
     line-height: 1.75rem;
 
     @media screen and (min-width: $bp-large) {
-        margin-top: 1.75rem;
-        margin-bottom: 1.25rem;
-        font-size: 1.75rem;
-        line-height: 2.75rem;
+        margin-top: 1.75rem !important;
+        margin-bottom: 1.25rem !important;
+        font-size: 1.75rem !important;
+        line-height: 2.75rem !important;
     }
 }
 
@@ -63,10 +63,10 @@ h3, .h3 {
     font-size: 1rem;
 
     @media screen and (min-width: $bp-large) {
-        margin-top: 1.25rem;
-        margin-bottom: 1.75rem;
-        font-size: 1.5rem;
-        line-height: 2rem;
+        margin-top: 1.25rem !important;
+        margin-bottom: 1.75rem !important;
+        font-size: 1.5rem !important;
+        line-height: 2rem !important;
     }
 }
 
@@ -74,10 +74,10 @@ h4, .h4 {
     font-size: 1rem;
 
     @media screen and (min-width: $bp-large) {
-        margin-top: 0.75rem;
-        margin-bottom: 1rem;
-        font-size: 1.25rem;
-        line-height: 1.75rem;
+        margin-top: 0.75rem !important;
+        margin-bottom: 1rem !important;
+        font-size: 1.25rem !important;
+        line-height: 1.75rem !important;
     }
 }
 
