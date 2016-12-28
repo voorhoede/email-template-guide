@@ -69,6 +69,6 @@
     "rimraf": "^2.2.8",
     "run-sequence": "^1.0.1",
     "through2": "^2.0.1",
-    "voorhoede-ocelot-formatter": "0.3.2"
+    "voorhoede-ocelot-formatter": "0.4.2"
   }
 }
