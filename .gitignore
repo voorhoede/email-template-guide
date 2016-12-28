@@ -15,3 +15,5 @@ credentials.json
 
 # OS X meta
 .DS_Store
+
+gh-pages

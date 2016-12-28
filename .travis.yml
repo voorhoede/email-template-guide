@@ -1,0 +1,23 @@
+sudo: false
+language: node_js
+node_js:
+- '6.0'
+cache:
+  directories:
+  - node_modules
+branches:
+  only:
+  - master
+notifications:
+  email: false
+before_script:
+- npm prune
+script:
+- npm run create-gh-pages
+after_success:
+- bash ./scripts/gh-pages.sh
+env:
+  global:
+  - GH_USER: voorhoede
+  - GH_REPO: email-template-guide
+  - secure: PiW7t843OYTOf6NV2JIaeHw+361EURekJooSvm02XC0+ycnylCeB6EHw3kn/tw1MuwTuC7mT0LF8JMHZugmM2j3aRjvZsu5aS6XByWBYsx1+otg/S76qA8D76R70MylR6siwmpVQH9hqwtXlJsfZbHoaXbyHkoUomtnjOoibp2s=

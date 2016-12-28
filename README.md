@@ -1,8 +1,9 @@
 # Email Template Guide
 
 Build, preview and test your nightmarish email newsletter templates.
+
 Use the Email Template Guide to create your newsletter modules and we take
-care of inlining your css on your final template. 
+care of inlining your css on your final template.
 
 You can also test your layouts on different email clients with [Litmus](http://litmus.com).
 
