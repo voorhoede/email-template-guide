@@ -14,7 +14,7 @@ fs.readFile('README.md', 'utf8', (err, readme) => {
         console.error('Error reading README.md', err);
         return;
     }
-    formatter(readme)
+    formatter(readme, { github: 'voorhoede/email-template-guide' })
         .then(html => rebaseRelativeUrls(html, masterBranchUrl))
         .then(html => {
             makeDir(dirName, () => fs.writeFile(outputFilePath, html))
